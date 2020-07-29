@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\User;
+use App\Models\Course;
 
 /**
  * Class HomeController
@@ -31,7 +32,7 @@ class HomeController extends Controller
      *
      * @return Response
      */
-    public function index()
+   /* public function index()
     {
         $roleCount = \App\Role::count();
 		if($roleCount != 0) {
@@ -44,7 +45,7 @@ class HomeController extends Controller
 				'message' => 'Please run command <code>php artisan db:seed</code> to generate required table data.',
 			]);
 		}
-    }
+    }*/
 
     public function show()
     {
@@ -53,5 +54,21 @@ class HomeController extends Controller
         $courses = User::where('type', 'Employee')->orderBy('id', 'desc')->get();
         return view('newwelcome', compact('courses', 'purchased_courses'));
     }
+
+    public function index()
+    {
+       /* $purchased_courses = NULL;
+        if (\Auth::check()) {
+            $purchased_courses = Course::whereHas('students', function($query) {
+                $query->where('id', \Auth::id());
+            })
+            
+            ->orderBy('id', 'desc')
+            ->get();
+        }*/
+        $courses = Course::where('published', 1)->orderBy('id', 'desc')->get();
+        return view('newwelcome', compact('courses', 'courses'));
+    }
+
 
 }

@@ -17,37 +17,37 @@ use Collective\Html\FormFacade as Form;
 use Dwij\Laraadmin\Models\Module;
 use Dwij\Laraadmin\Models\ModuleFields;
 
-use App\Models\Course;
+use App\Models\P_Parameter;
 
-class CoursesController extends Controller
+class P_ParametersController extends Controller
 {
 	public $show_action = true;
-	public $view_col = 'course_title';
-	public $listing_cols = ['id', 'course_title', 'description', 'start_date', 'published'];
+	public $view_col = 'parameter';
+	public $listing_cols = ['id', 'parameter'];
 	
 	public function __construct() {
 		// Field Access of Listing Columns
 		if(\Dwij\Laraadmin\Helpers\LAHelper::laravel_ver() == 5.3) {
 			$this->middleware(function ($request, $next) {
-				$this->listing_cols = ModuleFields::listingColumnAccessScan('Courses', $this->listing_cols);
+				$this->listing_cols = ModuleFields::listingColumnAccessScan('P_Parameters', $this->listing_cols);
 				return $next($request);
 			});
 		} else {
-			$this->listing_cols = ModuleFields::listingColumnAccessScan('Courses', $this->listing_cols);
+			$this->listing_cols = ModuleFields::listingColumnAccessScan('P_Parameters', $this->listing_cols);
 		}
 	}
 	
 	/**
-	 * Display a listing of the Courses.
+	 * Display a listing of the P_Parameters.
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index()
 	{
-		$module = Module::get('Courses');
+		$module = Module::get('P_Parameters');
 		
 		if(Module::hasAccess($module->id)) {
-			return View('la.courses.index', [
+			return View('la.p_parameters.index', [
 				'show_actions' => $this->show_action,
 				'listing_cols' => $this->listing_cols,
 				'module' => $module
@@ -58,7 +58,7 @@ class CoursesController extends Controller
 	}
 
 	/**
-	 * Show the form for creating a new course.
+	 * Show the form for creating a new p_parameter.
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
@@ -68,16 +68,16 @@ class CoursesController extends Controller
 	}
 
 	/**
-	 * Store a newly created course in database.
+	 * Store a newly created p_parameter in database.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store(Request $request)
 	{
-		if(Module::hasAccess("Courses", "create")) {
+		if(Module::hasAccess("P_Parameters", "create")) {
 		
-			$rules = Module::validateRules("Courses", $request);
+			$rules = Module::validateRules("P_Parameters", $request);
 			
 			$validator = Validator::make($request->all(), $rules);
 			
@@ -85,9 +85,9 @@ class CoursesController extends Controller
 				return redirect()->back()->withErrors($validator)->withInput();
 			}
 			
-			$insert_id = Module::insert("Courses", $request);
+			$insert_id = Module::insert("P_Parameters", $request);
 			
-			return redirect()->route(config('laraadmin.adminRoute') . '.courses.index');
+			return redirect()->route(config('laraadmin.adminRoute') . '.p_parameters.index');
 			
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
@@ -95,30 +95,30 @@ class CoursesController extends Controller
 	}
 
 	/**
-	 * Display the specified course.
+	 * Display the specified p_parameter.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show($id)
 	{
-		if(Module::hasAccess("Courses", "view")) {
+		if(Module::hasAccess("P_Parameters", "view")) {
 			
-			$course = Course::find($id);
-			if(isset($course->id)) {
-				$module = Module::get('Courses');
-				$module->row = $course;
+			$p_parameter = P_Parameter::find($id);
+			if(isset($p_parameter->id)) {
+				$module = Module::get('P_Parameters');
+				$module->row = $p_parameter;
 				
-				return view('la.courses.show', [
+				return view('la.p_parameters.show', [
 					'module' => $module,
 					'view_col' => $this->view_col,
 					'no_header' => true,
 					'no_padding' => "no-padding"
-				])->with('course', $course);
+				])->with('p_parameter', $p_parameter);
 			} else {
 				return view('errors.404', [
 					'record_id' => $id,
-					'record_name' => ucfirst("course"),
+					'record_name' => ucfirst("p_parameter"),
 				]);
 			}
 		} else {
@@ -126,49 +126,29 @@ class CoursesController extends Controller
 		}
 	}
 
-    public function show_course($course_slug)
-    {
-		$course = Course::where('course_title', $course_slug)->with('publishedLessons')->firstOrFail();
-		//dd($course->publishedLessons);
-        $purchased_course = \Auth::check() && $course->students()->where('user_id', \Auth::id())->count() > 0;
-
-        return view('course', compact('course', 'purchased_course'));
-	}
-	
-	public function payment(Request $request)
-    {
-        //dd($request->all());
-
-        $course = Course::findOrFail($request->get('course_id'));
-        $course->students()->attach(\Auth::id());
-
-        return redirect()->back()->with('success', 'Payment completed successfully.');
-    }
-
-
 	/**
-	 * Show the form for editing the specified course.
+	 * Show the form for editing the specified p_parameter.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
 	public function edit($id)
 	{
-		if(Module::hasAccess("Courses", "edit")) {			
-			$course = Course::find($id);
-			if(isset($course->id)) {	
-				$module = Module::get('Courses');
+		if(Module::hasAccess("P_Parameters", "edit")) {			
+			$p_parameter = P_Parameter::find($id);
+			if(isset($p_parameter->id)) {	
+				$module = Module::get('P_Parameters');
 				
-				$module->row = $course;
+				$module->row = $p_parameter;
 				
-				return view('la.courses.edit', [
+				return view('la.p_parameters.edit', [
 					'module' => $module,
 					'view_col' => $this->view_col,
-				])->with('course', $course);
+				])->with('p_parameter', $p_parameter);
 			} else {
 				return view('errors.404', [
 					'record_id' => $id,
-					'record_name' => ucfirst("course"),
+					'record_name' => ucfirst("p_parameter"),
 				]);
 			}
 		} else {
@@ -177,7 +157,7 @@ class CoursesController extends Controller
 	}
 
 	/**
-	 * Update the specified course in storage.
+	 * Update the specified p_parameter in storage.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @param  int  $id
@@ -185,9 +165,9 @@ class CoursesController extends Controller
 	 */
 	public function update(Request $request, $id)
 	{
-		if(Module::hasAccess("Courses", "edit")) {
+		if(Module::hasAccess("P_Parameters", "edit")) {
 			
-			$rules = Module::validateRules("Courses", $request, true);
+			$rules = Module::validateRules("P_Parameters", $request, true);
 			
 			$validator = Validator::make($request->all(), $rules);
 			
@@ -195,9 +175,9 @@ class CoursesController extends Controller
 				return redirect()->back()->withErrors($validator)->withInput();;
 			}
 			
-			$insert_id = Module::updateRow("Courses", $request, $id);
+			$insert_id = Module::updateRow("P_Parameters", $request, $id);
 			
-			return redirect()->route(config('laraadmin.adminRoute') . '.courses.index');
+			return redirect()->route(config('laraadmin.adminRoute') . '.p_parameters.index');
 			
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
@@ -205,18 +185,18 @@ class CoursesController extends Controller
 	}
 
 	/**
-	 * Remove the specified course from storage.
+	 * Remove the specified p_parameter from storage.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
 	public function destroy($id)
 	{
-		if(Module::hasAccess("Courses", "delete")) {
-			Course::find($id)->delete();
+		if(Module::hasAccess("P_Parameters", "delete")) {
+			P_Parameter::find($id)->delete();
 			
 			// Redirecting to index() method
-			return redirect()->route(config('laraadmin.adminRoute') . '.courses.index');
+			return redirect()->route(config('laraadmin.adminRoute') . '.p_parameters.index');
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
 		}
@@ -229,11 +209,11 @@ class CoursesController extends Controller
 	 */
 	public function dtajax()
 	{
-		$values = DB::table('courses')->select($this->listing_cols)->whereNull('deleted_at');
+		$values = DB::table('p_parameters')->select($this->listing_cols)->whereNull('deleted_at');
 		$out = Datatables::of($values)->make();
 		$data = $out->getData();
 
-		$fields_popup = ModuleFields::getModuleFields('Courses');
+		$fields_popup = ModuleFields::getModuleFields('P_Parameters');
 		
 		for($i=0; $i < count($data->data); $i++) {
 			for ($j=0; $j < count($this->listing_cols); $j++) { 
@@ -242,7 +222,7 @@ class CoursesController extends Controller
 					$data->data[$i][$j] = ModuleFields::getFieldValue($fields_popup[$col], $data->data[$i][$j]);
 				}
 				if($col == $this->view_col) {
-					$data->data[$i][$j] = '<a href="'.url(config('laraadmin.adminRoute') . '/courses/'.$data->data[$i][0]).'">'.$data->data[$i][$j].'</a>';
+					$data->data[$i][$j] = '<a href="'.url(config('laraadmin.adminRoute') . '/p_parameters/'.$data->data[$i][0]).'">'.$data->data[$i][$j].'</a>';
 				}
 				// else if($col == "author") {
 				//    $data->data[$i][$j];
@@ -251,12 +231,12 @@ class CoursesController extends Controller
 			
 			if($this->show_action) {
 				$output = '';
-				if(Module::hasAccess("Courses", "edit")) {
-					$output .= '<a href="'.url(config('laraadmin.adminRoute') . '/courses/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
+				if(Module::hasAccess("P_Parameters", "edit")) {
+					$output .= '<a href="'.url(config('laraadmin.adminRoute') . '/p_parameters/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
 				}
 				
-				if(Module::hasAccess("Courses", "delete")) {
-					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.courses.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
+				if(Module::hasAccess("P_Parameters", "delete")) {
+					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.p_parameters.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
 					$output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
 					$output .= Form::close();
 				}

@@ -17,37 +17,37 @@ use Collective\Html\FormFacade as Form;
 use Dwij\Laraadmin\Models\Module;
 use Dwij\Laraadmin\Models\ModuleFields;
 
-use App\Models\Course;
+use App\Models\Lesson;
 
-class CoursesController extends Controller
+class LessonsController extends Controller
 {
 	public $show_action = true;
-	public $view_col = 'course_title';
-	public $listing_cols = ['id', 'course_title', 'description', 'start_date', 'published'];
+	public $view_col = 'lesson_title';
+	public $listing_cols = ['id', 'lesson_title', 'course_id', 'description', 'published', 'lesson_image'];
 	
 	public function __construct() {
 		// Field Access of Listing Columns
 		if(\Dwij\Laraadmin\Helpers\LAHelper::laravel_ver() == 5.3) {
 			$this->middleware(function ($request, $next) {
-				$this->listing_cols = ModuleFields::listingColumnAccessScan('Courses', $this->listing_cols);
+				$this->listing_cols = ModuleFields::listingColumnAccessScan('Lessons', $this->listing_cols);
 				return $next($request);
 			});
 		} else {
-			$this->listing_cols = ModuleFields::listingColumnAccessScan('Courses', $this->listing_cols);
+			$this->listing_cols = ModuleFields::listingColumnAccessScan('Lessons', $this->listing_cols);
 		}
 	}
 	
 	/**
-	 * Display a listing of the Courses.
+	 * Display a listing of the Lessons.
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index()
 	{
-		$module = Module::get('Courses');
+		$module = Module::get('Lessons');
 		
 		if(Module::hasAccess($module->id)) {
-			return View('la.courses.index', [
+			return View('la.lessons.index', [
 				'show_actions' => $this->show_action,
 				'listing_cols' => $this->listing_cols,
 				'module' => $module
@@ -58,7 +58,7 @@ class CoursesController extends Controller
 	}
 
 	/**
-	 * Show the form for creating a new course.
+	 * Show the form for creating a new lesson.
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
@@ -68,16 +68,16 @@ class CoursesController extends Controller
 	}
 
 	/**
-	 * Store a newly created course in database.
+	 * Store a newly created lesson in database.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store(Request $request)
 	{
-		if(Module::hasAccess("Courses", "create")) {
+		if(Module::hasAccess("Lessons", "create")) {
 		
-			$rules = Module::validateRules("Courses", $request);
+			$rules = Module::validateRules("Lessons", $request);
 			
 			$validator = Validator::make($request->all(), $rules);
 			
@@ -85,9 +85,9 @@ class CoursesController extends Controller
 				return redirect()->back()->withErrors($validator)->withInput();
 			}
 			
-			$insert_id = Module::insert("Courses", $request);
+			$insert_id = Module::insert("Lessons", $request);
 			
-			return redirect()->route(config('laraadmin.adminRoute') . '.courses.index');
+			return redirect()->route(config('laraadmin.adminRoute') . '.lessons.index');
 			
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
@@ -95,30 +95,30 @@ class CoursesController extends Controller
 	}
 
 	/**
-	 * Display the specified course.
+	 * Display the specified lesson.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show($id)
 	{
-		if(Module::hasAccess("Courses", "view")) {
+		if(Module::hasAccess("Lessons", "view")) {
 			
-			$course = Course::find($id);
-			if(isset($course->id)) {
-				$module = Module::get('Courses');
-				$module->row = $course;
+			$lesson = Lesson::find($id);
+			if(isset($lesson->id)) {
+				$module = Module::get('Lessons');
+				$module->row = $lesson;
 				
-				return view('la.courses.show', [
+				return view('la.lessons.show', [
 					'module' => $module,
 					'view_col' => $this->view_col,
 					'no_header' => true,
 					'no_padding' => "no-padding"
-				])->with('course', $course);
+				])->with('lesson', $lesson);
 			} else {
 				return view('errors.404', [
 					'record_id' => $id,
-					'record_name' => ucfirst("course"),
+					'record_name' => ucfirst("lesson"),
 				]);
 			}
 		} else {
@@ -126,49 +126,29 @@ class CoursesController extends Controller
 		}
 	}
 
-    public function show_course($course_slug)
-    {
-		$course = Course::where('course_title', $course_slug)->with('publishedLessons')->firstOrFail();
-		//dd($course->publishedLessons);
-        $purchased_course = \Auth::check() && $course->students()->where('user_id', \Auth::id())->count() > 0;
-
-        return view('course', compact('course', 'purchased_course'));
-	}
-	
-	public function payment(Request $request)
-    {
-        //dd($request->all());
-
-        $course = Course::findOrFail($request->get('course_id'));
-        $course->students()->attach(\Auth::id());
-
-        return redirect()->back()->with('success', 'Payment completed successfully.');
-    }
-
-
 	/**
-	 * Show the form for editing the specified course.
+	 * Show the form for editing the specified lesson.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
 	public function edit($id)
 	{
-		if(Module::hasAccess("Courses", "edit")) {			
-			$course = Course::find($id);
-			if(isset($course->id)) {	
-				$module = Module::get('Courses');
+		if(Module::hasAccess("Lessons", "edit")) {			
+			$lesson = Lesson::find($id);
+			if(isset($lesson->id)) {	
+				$module = Module::get('Lessons');
 				
-				$module->row = $course;
+				$module->row = $lesson;
 				
-				return view('la.courses.edit', [
+				return view('la.lessons.edit', [
 					'module' => $module,
 					'view_col' => $this->view_col,
-				])->with('course', $course);
+				])->with('lesson', $lesson);
 			} else {
 				return view('errors.404', [
 					'record_id' => $id,
-					'record_name' => ucfirst("course"),
+					'record_name' => ucfirst("lesson"),
 				]);
 			}
 		} else {
@@ -177,7 +157,7 @@ class CoursesController extends Controller
 	}
 
 	/**
-	 * Update the specified course in storage.
+	 * Update the specified lesson in storage.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @param  int  $id
@@ -185,9 +165,9 @@ class CoursesController extends Controller
 	 */
 	public function update(Request $request, $id)
 	{
-		if(Module::hasAccess("Courses", "edit")) {
+		if(Module::hasAccess("Lessons", "edit")) {
 			
-			$rules = Module::validateRules("Courses", $request, true);
+			$rules = Module::validateRules("Lessons", $request, true);
 			
 			$validator = Validator::make($request->all(), $rules);
 			
@@ -195,9 +175,9 @@ class CoursesController extends Controller
 				return redirect()->back()->withErrors($validator)->withInput();;
 			}
 			
-			$insert_id = Module::updateRow("Courses", $request, $id);
+			$insert_id = Module::updateRow("Lessons", $request, $id);
 			
-			return redirect()->route(config('laraadmin.adminRoute') . '.courses.index');
+			return redirect()->route(config('laraadmin.adminRoute') . '.lessons.index');
 			
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
@@ -205,18 +185,18 @@ class CoursesController extends Controller
 	}
 
 	/**
-	 * Remove the specified course from storage.
+	 * Remove the specified lesson from storage.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
 	public function destroy($id)
 	{
-		if(Module::hasAccess("Courses", "delete")) {
-			Course::find($id)->delete();
+		if(Module::hasAccess("Lessons", "delete")) {
+			Lesson::find($id)->delete();
 			
 			// Redirecting to index() method
-			return redirect()->route(config('laraadmin.adminRoute') . '.courses.index');
+			return redirect()->route(config('laraadmin.adminRoute') . '.lessons.index');
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
 		}
@@ -229,11 +209,11 @@ class CoursesController extends Controller
 	 */
 	public function dtajax()
 	{
-		$values = DB::table('courses')->select($this->listing_cols)->whereNull('deleted_at');
+		$values = DB::table('lessons')->select($this->listing_cols)->whereNull('deleted_at');
 		$out = Datatables::of($values)->make();
 		$data = $out->getData();
 
-		$fields_popup = ModuleFields::getModuleFields('Courses');
+		$fields_popup = ModuleFields::getModuleFields('Lessons');
 		
 		for($i=0; $i < count($data->data); $i++) {
 			for ($j=0; $j < count($this->listing_cols); $j++) { 
@@ -242,7 +222,7 @@ class CoursesController extends Controller
 					$data->data[$i][$j] = ModuleFields::getFieldValue($fields_popup[$col], $data->data[$i][$j]);
 				}
 				if($col == $this->view_col) {
-					$data->data[$i][$j] = '<a href="'.url(config('laraadmin.adminRoute') . '/courses/'.$data->data[$i][0]).'">'.$data->data[$i][$j].'</a>';
+					$data->data[$i][$j] = '<a href="'.url(config('laraadmin.adminRoute') . '/lessons/'.$data->data[$i][0]).'">'.$data->data[$i][$j].'</a>';
 				}
 				// else if($col == "author") {
 				//    $data->data[$i][$j];
@@ -251,12 +231,12 @@ class CoursesController extends Controller
 			
 			if($this->show_action) {
 				$output = '';
-				if(Module::hasAccess("Courses", "edit")) {
-					$output .= '<a href="'.url(config('laraadmin.adminRoute') . '/courses/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
+				if(Module::hasAccess("Lessons", "edit")) {
+					$output .= '<a href="'.url(config('laraadmin.adminRoute') . '/lessons/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
 				}
 				
-				if(Module::hasAccess("Courses", "delete")) {
-					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.courses.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
+				if(Module::hasAccess("Lessons", "delete")) {
+					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.lessons.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
 					$output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
 					$output .= Form::close();
 				}

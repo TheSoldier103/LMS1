@@ -2,9 +2,11 @@
 
 /* ================== Homepage ================== */
 //Route::get('/', 'HomeController@index');
-Route::get('/welcome', 'HomeController@show');
+//Route::get('/welcome', 'HomeController@show');
 
 Route::get('/home', 'HomeController@index');
+//Route::get('/metadata', 'LA\Learning_ObjectsController@add_metadata');
+
 Route::auth();
 
 /* ================== Access Uploaded Files ================== */
@@ -66,4 +68,38 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	/* ================== Courses ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/courses', 'LA\CoursesController');
 	Route::get(config('laraadmin.adminRoute') . '/course_dt_ajax', 'LA\CoursesController@dtajax');
+	Route::get('course/{slug}', ['uses' => 'LA\CoursesController@show_course', 'as' => 'courses.show']);
+	Route::post('course/payment', ['uses' => 'LA\CoursesController@payment', 'as' => 'courses.payment']);
+
+	/* ================== Lessons ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/lessons', 'LA\LessonsController');
+	Route::get(config('laraadmin.adminRoute') . '/lesson_dt_ajax', 'LA\LessonsController@dtajax');
+	Route::get('lesson/{course_id}/{slug}', ['uses' => 'LessonsController@show', 'as' => 'lessons.show']);
+
+	/* ================== Learning_Objects ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/learning_objects', 'LA\Learning_ObjectsController');
+	Route::get(config('laraadmin.adminRoute') . '/learning_object_dt_ajax', 'LA\Learning_ObjectsController@dtajax');
+	Route::post('{/admin/learning_objects/', 'LA\Learning_ObjectsController@LOMetadata');
+
+	/* ================== Data_Elements ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/data_elements', 'LA\Data_ElementsController');
+	Route::get(config('laraadmin.adminRoute') . '/data_element_dt_ajax', 'LA\Data_ElementsController@dtajax');
+
+
+
+	/* ================== P_Parameters ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/p_parameters', 'LA\P_ParametersController');
+	Route::get(config('laraadmin.adminRoute') . '/p_parameter_dt_ajax', 'LA\P_ParametersController@dtajax');
+
+	/* ================== DElement_PParameters ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/delement_pparameters', 'LA\DElement_PParametersController');
+	Route::get(config('laraadmin.adminRoute') . '/delement_pparameter_dt_ajax', 'LA\DElement_PParametersController@dtajax');
+
+	/* ================== Quizzes ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/quizzes', 'LA\QuizzesController');
+	Route::get(config('laraadmin.adminRoute') . '/quiz_dt_ajax', 'LA\QuizzesController@dtajax');
+
+	/* ================== Questions ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/questions', 'LA\QuestionsController');
+	Route::get(config('laraadmin.adminRoute') . '/question_dt_ajax', 'LA\QuestionsController@dtajax');
 });

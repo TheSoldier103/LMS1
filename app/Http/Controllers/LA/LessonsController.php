@@ -100,6 +100,46 @@ class LessonsController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
+
+	public function show_lesson($course_id, $lesson_slug)
+    {
+        $lesson = Lesson::where('lesson_title', $lesson_slug)->where('course_id', $course_id)->firstOrFail();
+
+        if (\Auth::check())
+        {
+            if ($lesson->students()->where('id', \Auth::id())->count() == 0) {
+                $lesson->students()->attach(\Auth::id());
+            }
+        }
+
+       // $test_result = NULL;
+       // if ($lesson->test) {
+        //    $test_result = TestsResult::where('test_id', $lesson->test->id)
+        //        ->where('user_id', \Auth::id())
+        //        ->first();
+        //}
+
+        $previous_lesson = Lesson::where('course_id', $lesson->course_id)
+            ->where('position', '<', $lesson->position)
+            ->orderBy('position', 'desc')
+            ->first();
+        $next_lesson = Lesson::where('course_id', $lesson->course_id)
+            ->where('position', '>', $lesson->position)
+            ->orderBy('position', 'asc')
+            ->first();
+
+        $purchased_course = $lesson->course->students()->where('user_id', \Auth::id())->count() > 0;
+        $test_exists = FALSE;
+        if ($lesson->test && $lesson->test->questions->count() > 0) {
+            $test_exists = TRUE;
+        }
+
+        return view('lesson', compact('lesson', 'previous_lesson', 'next_lesson', 'test_result',
+            'purchased_course', 'test_exists'));
+    }
+
+
+
 	public function show($id)
 	{
 		if(Module::hasAccess("Lessons", "view")) {

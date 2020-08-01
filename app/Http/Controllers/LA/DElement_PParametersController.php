@@ -23,7 +23,7 @@ class DElement_PParametersController extends Controller
 {
 	public $show_action = true;
 	public $view_col = 'linguistic_term';
-	public $listing_cols = ['id', 'linguistic_term', 'parameter', 'data_element', 'metadata_value', 'degree'];
+	public $listing_cols = ['id', 'linguistic_term', 'parameter', 'data_element', 'metadata_value', 'interactivity_level', 'degree'];
 	
 	public function __construct() {
 		// Field Access of Listing Columns
@@ -105,15 +105,6 @@ class DElement_PParametersController extends Controller
 		if(Module::hasAccess("DElement_PParameters", "view")) {
 			
 			$delement_pparameter = DElement_PParameter::find($id);
-			//dd($media_format = ['text','audio','PPT','video','multimedia']);
-
-			$media = DB::table('delement_pparameters')
-						->join('p_parameters', 'p_parameters.id', '=', 'delement_pparameters.parameter')
-						->select('delement_pparameters.linguistic_term')
-						->where('p_parameters.parameter', '=', 'Felder/Silverman LS')->get();
-			//dd(gettype($media));
-
-
 			if(isset($delement_pparameter->id)) {
 				$module = Module::get('DElement_PParameters');
 				$module->row = $delement_pparameter;

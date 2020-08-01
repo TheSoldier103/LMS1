@@ -132,6 +132,46 @@
 							{{Form::select('Language', $language, '', ['class'=>'form-control']) }}
 						</div>
 
+						<div class="form-group">
+							{{Form::label('interactivity_type', 'Interactivity Type')}}
+							{{Form::select('Interactivity Type', $interactivity_type, '', ['class'=>'form-control']) }}
+						</div>
+
+						<div class="form-group">
+							{{Form::label('interactivity_level', 'Interactivity Level')}}
+							{{Form::select('Interactivity Level', $interactivity_level, '', ['class'=>'form-control']) }}
+						</div>
+
+						<div class="form-group">
+							{{Form::label('lrt', 'Learning Resource Type')}}
+							{{Form::select('Learning Resource Type', $lrt, '', ['class'=>'form-control']) }}
+						</div>
+
+						<div class="form-group">
+							{{Form::label('format', 'Format')}}
+							{{Form::select('Format', $format, '', ['class'=>'form-control']) }}
+						</div>
+
+						<div class="form-group">
+							{{Form::label('structure', 'Structure')}}
+							{{Form::select('Structure', $structure, '', ['class'=>'form-control']) }}
+						</div>
+
+						<div class="form-group">
+							{{Form::label('difficulty', 'Difficulty')}}
+							{{Form::select('Difficulty', $difficulty, '', ['class'=>'form-control']) }}
+						</div>
+
+						<div class="form-group">
+							{{Form::label('semantic_density', 'Semantic Density')}}
+							{{Form::select('Semantic Density', $semantic_density, '', ['class'=>'form-control']) }}
+						</div>
+
+						<div class="form-group">
+							{{Form::label('purpose', 'Purpose')}}
+							{{Form::select('Purpose', $purpose, '', ['class'=>'form-control']) }}
+						</div>
+
 
 						<div class="form-group">
 							{{Form::hidden('id', $id) }}

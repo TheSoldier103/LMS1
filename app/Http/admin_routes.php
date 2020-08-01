@@ -74,7 +74,7 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	/* ================== Lessons ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/lessons', 'LA\LessonsController');
 	Route::get(config('laraadmin.adminRoute') . '/lesson_dt_ajax', 'LA\LessonsController@dtajax');
-	Route::get('lesson/{course_id}/{slug}', ['uses' => 'LessonsController@show', 'as' => 'lessons.show']);
+	Route::get('lesson/{course_id}/{slug}', ['uses' => 'LA\LessonsController@show_lesson', 'as' => 'lessons.show']);
 
 	/* ================== Learning_Objects ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/learning_objects', 'LA\Learning_ObjectsController');

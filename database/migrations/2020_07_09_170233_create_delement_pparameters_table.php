@@ -22,7 +22,8 @@ class CreateDelementPparametersTable extends Migration
             ["parameter", "Parameter", "Dropdown", false, "", 0, 0, true, "@p_parameters"],
             ["data_element", "Data Element", "Dropdown", false, "", 0, 0, true, "@data_elements"],
             ["metadata_value", "Metadata Value", "String", false, "", 0, 256, true],
-            ["degree", "Degree", "Dropdown", false, "", 0, 0, false, ["20","40","60","80","100"]],
+            ["interactivity_level", "Interactivity Level", "Dropdown", false, "", 0, 0, false, ["low","very low","medium","high","very high","-"]],
+            ["degree", "Degree", "Dropdown", false, "100", 0, 0, false, ["20","40","60","80","100"]],
         ]);
 		
 		/*

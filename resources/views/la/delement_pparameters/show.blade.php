@@ -111,6 +111,7 @@
 						@la_display($module, 'parameter')
 						@la_display($module, 'data_element')
 						@la_display($module, 'metadata_value')
+						@la_display($module, 'interactivity_level')
 						@la_display($module, 'degree')
 					</div>
 				</div>

@@ -141,18 +141,113 @@ class Learning_ObjectsController extends Controller
 			if(isset($learning_object->id)) {
 				$module = Module::get('Learning_Objects');
 				$module->row = $learning_object;
-				$media_format = ['text','audio','PPT','video','multimedia'];
+				//$media_format = ['text','audio','PPT','video','multimedia'];
+				//$interactivity_level = ['very low','low','medium','high','very high'];
+				
+				$interactivity_typeV = DB::table('delement_pparameters')
+				->join('data_elements', 'data_elements.id', '=', 'delement_pparameters.data_element')
+				->select('delement_pparameters.metadata_value')
+				->where('data_elements.element_name', '=', 'Interactivity Type')->get();
+
+				$interactivity_levelV = DB::table('delement_pparameters')
+				->join('data_elements', 'data_elements.id', '=', 'delement_pparameters.data_element')
+				->select('delement_pparameters.interactivity_level')
+				->get();
+
+				$lrtV = DB::table('delement_pparameters')
+				->join('data_elements', 'data_elements.id', '=', 'delement_pparameters.data_element')
+				->select('delement_pparameters.metadata_value')
+				->where('data_elements.element_name', '=', 'Learning Resource Type')->get();
+
+				$formatV = DB::table('delement_pparameters')
+				->join('data_elements', 'data_elements.id', '=', 'delement_pparameters.data_element')
+				->select('delement_pparameters.metadata_value')
+				->where('data_elements.element_name', '=', 'Format')->get();
+
+				$structureV = DB::table('delement_pparameters')
+				->join('data_elements', 'data_elements.id', '=', 'delement_pparameters.data_element')
+				->select('delement_pparameters.metadata_value')
+				->where('data_elements.element_name', '=', 'Structure')->get();
+
+				$difficultyV = DB::table('delement_pparameters')
+				->join('data_elements', 'data_elements.id', '=', 'delement_pparameters.data_element')
+				->select('delement_pparameters.metadata_value')
+				->where('data_elements.element_name', '=', 'Difficulty')->get();
+
+				$semantic_densityV = DB::table('delement_pparameters')
+				->join('data_elements', 'data_elements.id', '=', 'delement_pparameters.data_element')
+				->select('delement_pparameters.metadata_value')
+				->where('data_elements.element_name', '=', 'Semantic Density')->get();
+
+				$purposeV = DB::table('delement_pparameters')
+				->join('data_elements', 'data_elements.id', '=', 'delement_pparameters.data_element')
+				->select('delement_pparameters.metadata_value')
+				->where('data_elements.element_name', '=', 'Purpose')->get();
+
 				$languageV = DB::table('delement_pparameters')
+				->join('data_elements', 'data_elements.id', '=', 'delement_pparameters.data_element')
+				->select('delement_pparameters.metadata_value')
+				->where('data_elements.element_name', '=', 'Language')->get();
+
+			/*	$interactivity_typeV = DB::table('delement_pparameters')
 				->join('p_parameters', 'p_parameters.id', '=', 'delement_pparameters.parameter')
 				->select('delement_pparameters.linguistic_term')
-				->where('p_parameters.parameter', '=', 'Language Preference')->get();
+				->where('p_parameters.parameter', '=', 'Language Preference')->get(); */
+
 
 				//$media = DB::select(DB::raw("SELECT delement_pparameters.linguistic_term FROM p_parameters INNER JOIN delement_pparameters ON p_parameters.id = delement_pparameters.parameter WHERE p_parameters.parameter ='Felder/Silverman LS'"));
+				
 				$language = [];
 				foreach ($languageV as $value) {
-					 //array_push($language, $value->linguistic_term);
-					 $language[$value->linguistic_term]=$value->linguistic_term;
+					 $language[$value->metadata_value]=$value->metadata_value;
 				}
+
+				$interactivity_type = [];
+				foreach ($interactivity_typeV as $value) {
+					 $interactivity_type[$value->metadata_value]=$value->metadata_value;
+				}
+
+				$interactivity_level = [];
+				foreach ($interactivity_levelV as $value) {
+					 $interactivity_level[$value->interactivity_level]=$value->interactivity_level;
+				}
+
+
+				$lrt = [];
+				foreach ($lrtV as $value) {
+					 $lrt[$value->metadata_value]=$value->metadata_value;
+				}
+
+				$format = [];
+				foreach ($formatV as $value) {
+					 $format[$value->metadata_value]=$value->metadata_value;
+				}
+
+				$structure = [];
+				foreach ($structureV as $value) {
+					 $structure[$value->metadata_value]=$value->metadata_value;
+				}
+
+				$difficulty = [];
+				foreach ($difficultyV as $value) {
+					 $difficulty[$value->metadata_value]=$value->metadata_value;
+				}
+
+				$semantic_density = [];
+				foreach ($semantic_densityV as $value) {
+					 $semantic_density[$value->metadata_value]=$value->metadata_value;
+				}
+
+				$purpose = [];
+				foreach ($purposeV as $value) {
+					 $purpose[$value->metadata_value]=$value->metadata_value;
+				}
+
+				//$language = [];
+				//foreach ($languageV as $value) {
+					 //array_push($language, $value->linguistic_term);
+				//	 $language[$value->linguistic_term]=$value->linguistic_term;
+				//}
 				//dd($language);
 				//$languages = ['English', 'French'];
 
@@ -164,8 +259,16 @@ class Learning_ObjectsController extends Controller
 					'no_header' => true,
 					'no_padding' => "no-padding"
 				])->with('learning_object', $learning_object)
-				->with('media_format', $media_format)
+				
 				->with('language', $language)
+				->with('interactivity_type', $interactivity_type)
+				->with('interactivity_level', $interactivity_level)
+				->with('lrt', $lrt)
+				->with('format', $format)
+				->with('structure', $structure)
+				->with('difficulty', $difficulty)
+				->with('semantic_density', $semantic_density)
+				->with('purpose', $purpose)
 				->with('id', $id);
 			} else {
 				return view('errors.404', [

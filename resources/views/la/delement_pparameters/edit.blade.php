@@ -37,6 +37,7 @@
 					@la_input($module, 'parameter')
 					@la_input($module, 'data_element')
 					@la_input($module, 'metadata_value')
+					@la_input($module, 'interactivity_level')
 					@la_input($module, 'degree')
 					--}}
                     <br>

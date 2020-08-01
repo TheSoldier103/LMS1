@@ -54,7 +54,7 @@
 
         @foreach ($course->publishedLessons as $lesson)
           
-            <a href="{{ route('lessons.show', [$lesson->course_id, $lesson->slug]) }}">{{ $lesson->lesson_title }}</a>
+            <a href="{{ route('lessons.show', [$lesson->course_id, $lesson->lesson_title]) }}">{{ $lesson->lesson_title }}</a>
             <p>{{ $lesson->description }}</p>
             <hr />
         @endforeach

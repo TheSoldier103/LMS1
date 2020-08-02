@@ -1,21 +1,21 @@
-@extends('layouts.home')
+@extends('la.layouts.app2')
 
 @section('sidebar')
-    <p class="lead">{{ $lesson->course->title }}</p>
+    <p class="lead">{{ $lesson->course->lesson_title }}</p>
 
     <div class="list-group">
         @foreach ($lesson->course->publishedLessons as $list_lesson)
-            <a href="{{ route('lessons.show', [$list_lesson->course_id, $list_lesson->slug]) }}" class="list-group-item"
-                @if ($list_lesson->id == $lesson->id) style="font-weight: bold" @endif>{{ $loop->iteration }}. {{ $list_lesson->title }}</a>
+            <a href="{{ route('lessons.show', [$list_lesson->course_id, $list_lesson->lesson_title]) }}" class="list-group-item"
+                @if ($list_lesson->id == $lesson->id) style="font-weight: bold" @endif> {{ $list_lesson->lesson_title }}</a>
         @endforeach
     </div>
 @endsection
 
-@section('main')
+@section('main-content')
 
-    <h2>{{ $lesson->title }}</h2>
+    <h2>{{ $lesson->lesson_title }}</h2>
 
-    @if ($purchased_course || $lesson->free_lesson == 1)
+    @if ($enrolled_course)
         {!! $lesson->full_text !!}
 
         @if ($test_exists)
@@ -44,10 +44,23 @@
     @endif
 
     @if ($previous_lesson)
-        <p><a href="{{ route('lessons.show', [$previous_lesson->course_id, $previous_lesson->slug]) }}"><< {{ $previous_lesson->title }}</a></p>
+        <p><a href="{{ route('lessons.show', [$previous_lesson->course_id, $previous_lesson->lesson_title]) }}"><< {{ $previous_lesson->lesson_title }}</a></p>
     @endif
     @if ($next_lesson)
-        <p><a href="{{ route('lessons.show', [$next_lesson->course_id, $next_lesson->slug]) }}">{{ $next_lesson->title }} >></a></p>
+        <p><a href="{{ route('lessons.show', [$next_lesson->course_id, $next_lesson->lesson_title]) }}">{{ $next_lesson->lesson_title }} >></a></p>
     @endif
+
+    <h3 style="color:#FF0000">Downloadable files</h3>
+    
+    <!-- <a href="{{URL::to('/')}}/files/4idzmi7pixexg78zcwtj/LMS.pdf  " target="_blank">
+     <button class="btn"><i class="fa fa-download"></i> Download File</button>
+    </a> -->
+
+    @foreach ($file_link as $file_link)
+    <a href="{{URL::to('/')}}/files/{{$file_link->hash}}/{{$file_link->name}}  " target="_blank">
+     <button class="btn"><i class="fa fa-download"></i><h3 >{{$file_link->lo_title}}</h3></button>
+    </a>
+    
+    @endforeach
 
 @endsection

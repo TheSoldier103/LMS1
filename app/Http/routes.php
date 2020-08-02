@@ -18,3 +18,7 @@ Route::get('/', function () {
 /* ================== Homepage + Admin Routes ================== */
 
 require __DIR__.'/admin_routes.php';
+Route::get('course/{slug}', ['uses' => 'LA\CoursesController@show_course', 'as' => 'courses.show']);
+Route::post('course/enrollment', ['uses' => 'LA\CoursesController@enrollment', 'as' => 'courses.enrollment']);
+
+Route::post('course/{course_id}/rating', ['uses' => 'LA\CoursesController@rating', 'as' => 'courses.rating']);

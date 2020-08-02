@@ -51,4 +51,9 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         return $this->hasMany('App\Upload');
     }
+
+    public function lessons()
+    {
+        return $this->belongsToMany('App\Models\Lesson', 'lesson_students');
+    }
 }

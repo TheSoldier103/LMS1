@@ -24,7 +24,7 @@ class Learning_ObjectsController extends Controller
 {
 	public $show_action = true;
 	public $view_col = 'lo_title';
-	public $listing_cols = ['id', 'lesson', 'lo_title', 'file', 'format'];
+	public $listing_cols = ['id', 'lesson_id', 'lo_title', 'file', 'format'];
 	
 	public function __construct() {
 		// Field Access of Listing Columns
@@ -93,7 +93,19 @@ class Learning_ObjectsController extends Controller
 
 		$LO_id = request()->id;
 		$language = request()->Language;
-        DB::insert('insert into lo_properties (lo, language) values (?, ?)', [$LO_id, $language]);
+		$interactivity_type = request()->Interactivity_Type;
+		$interactivity_level = request()->Interactivity_Level;
+		$resource_type = request()->Learning_Resource_Type;
+		$format = request()->Format;
+		$structure = request()->Structure;
+		$difficulty = request()->Difficulty;
+		$semantic_density = request()->Semantic_Density;
+		$purpose = request()->Purpose;
+
+		DB::insert('insert into lo_properties 
+		(lo, language, interactivity_type, interactivity_level, resource_type, format, structure, difficulty, semantic_density, purpose) 
+		values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', 
+		[$LO_id, $language, $interactivity_type, $interactivity_level, $resource_type, $format, $structure, $difficulty, $semantic_density, $purpose]);
          
         return redirect ('/home')->with('success','Metadata added');
 

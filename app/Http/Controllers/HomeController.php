@@ -57,17 +57,16 @@ class HomeController extends Controller
 
     public function index()
     {
-       /* $purchased_courses = NULL;
-        if (\Auth::check()) {
-            $purchased_courses = Course::whereHas('students', function($query) {
-                $query->where('id', \Auth::id());
+        $enrolled_courses = NULL;
+       if (\Auth::check()) {
+            $enrolled_courses = Course::whereHas('students', function($query) {
+                $query->where('user_id', \Auth::id());
             })
-            
             ->orderBy('id', 'desc')
             ->get();
-        }*/
+        } 
         $courses = Course::where('published', 1)->orderBy('id', 'desc')->get();
-        return view('newwelcome', compact('courses', 'courses'));
+        return view('newwelcome', compact('courses', 'enrolled_courses'));
     }
 
 

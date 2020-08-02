@@ -130,19 +130,27 @@ class CoursesController extends Controller
     {
 		$course = Course::where('course_title', $course_slug)->with('publishedLessons')->firstOrFail();
 		//dd($course->publishedLessons);
-        $purchased_course = \Auth::check() && $course->students()->where('user_id', \Auth::id())->count() > 0;
+        $enrolled_course = \Auth::check() && $course->students()->where('user_id', \Auth::id())->count() > 0;
 
-        return view('course', compact('course', 'purchased_course'));
+        return view('course', compact('course', 'enrolled_course'));
 	}
 	
-	public function payment(Request $request)
+	public function enrollment(Request $request)
     {
-        //dd($request->all());
+        //  dd($request->all());
 
         $course = Course::findOrFail($request->get('course_id'));
         $course->students()->attach(\Auth::id());
 
-        return redirect()->back()->with('success', 'Payment completed successfully.');
+        return redirect()->back()->with('success', 'enrollment completed successfully.');
+	}
+	
+	public function rating($course_id, Request $request)
+    {
+        $course = Course::findOrFail($course_id);
+        $course->students()->updateExistingPivot(\Auth::id(), ['rating' => $request->get('rating')]);
+
+        return redirect()->back()->with('success', 'Thank you for rating.');
     }
 
 

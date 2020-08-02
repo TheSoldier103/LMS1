@@ -23,7 +23,7 @@ class LessonsController extends Controller
 {
 	public $show_action = true;
 	public $view_col = 'lesson_title';
-	public $listing_cols = ['id', 'lesson_title', 'course_id', 'description', 'published', 'lesson_image'];
+	public $listing_cols = ['id', 'lesson_title', 'course_id', 'description', 'full_text', 'published', 'lesson_image'];
 	
 	public function __construct() {
 		// Field Access of Listing Columns
@@ -107,7 +107,7 @@ class LessonsController extends Controller
 
         if (\Auth::check())
         {
-            if ($lesson->students()->where('id', \Auth::id())->count() == 0) {
+            if ($lesson->students()->where('user_id', \Auth::id())->count() == 0) {
                 $lesson->students()->attach(\Auth::id());
             }
         }
@@ -128,14 +128,23 @@ class LessonsController extends Controller
             ->orderBy('position', 'asc')
             ->first();
 
-        $purchased_course = $lesson->course->students()->where('user_id', \Auth::id())->count() > 0;
+		$enrolled_course = $lesson->course->students()->where('user_id', \Auth::id())->count() > 0;
+		
+		$los = $lesson->learning_objects;
+		//dd($lesson->learning_objects);
+
+		$file_link = DB::table('learning_objects')
+				->join('uploads', 'uploads.id', '=', 'learning_objects.file')
+				->select('uploads.path','learning_objects.lo_title','uploads.hash','uploads.name')
+				->where('learning_objects.lesson_id', '=', $lesson->id)->get();
+
         $test_exists = FALSE;
         if ($lesson->test && $lesson->test->questions->count() > 0) {
             $test_exists = TRUE;
         }
 
         return view('lesson', compact('lesson', 'previous_lesson', 'next_lesson', 'test_result',
-            'purchased_course', 'test_exists'));
+            'enrolled_course', 'test_exists', 'file_link'));
     }
 
 

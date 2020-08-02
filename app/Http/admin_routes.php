@@ -69,7 +69,7 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	Route::resource(config('laraadmin.adminRoute') . '/courses', 'LA\CoursesController');
 	Route::get(config('laraadmin.adminRoute') . '/course_dt_ajax', 'LA\CoursesController@dtajax');
 	Route::get('course/{slug}', ['uses' => 'LA\CoursesController@show_course', 'as' => 'courses.show']);
-	Route::post('course/payment', ['uses' => 'LA\CoursesController@payment', 'as' => 'courses.payment']);
+	Route::post('course/enrollment', ['uses' => 'LA\CoursesController@enrollment', 'as' => 'courses.enrollment']);
 
 	/* ================== Lessons ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/lessons', 'LA\LessonsController');

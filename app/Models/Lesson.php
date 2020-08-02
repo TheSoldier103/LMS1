@@ -33,6 +33,11 @@ class Lesson extends Model
 
     public function students()
     {
-        return $this->belongsToMany('App\User', 'lesson_student')->withTimestamps();
+        return $this->belongsToMany('App\User', 'lesson_students')->withTimestamps();
+    }
+
+    public function learning_objects()
+    {
+        return $this->hasMany(Learning_Object::class)->orderBy('id');
     }
 }

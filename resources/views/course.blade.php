@@ -12,9 +12,9 @@
 
       <div class="row">
 
-        <h2>{{ $course->title }}</h2>
+        <h2>{{ $course->course_title }}</h2>
 
-        @if ($purchased_course)
+        @if ($enrolled_course)
             Rating: {{ $course->rating }} / 5
             <br />
             <b>Rate the course:</b>
@@ -38,7 +38,7 @@
         <p>
             @if (\Auth::check())
                 @if ($course->students()->where('user_id', \Auth::id())->count() == 0)
-                {{Form::open(['action'=> 'LA\CoursesController@payment', 'method' => 'POST'])}}
+                {{Form::open(['action'=> 'LA\CoursesController@enrollment', 'method' => 'POST'])}}
 	                <div class="form-group">
                     <input type="hidden" name="course_id" value="{{ $course->id }}"/>
                     </div>

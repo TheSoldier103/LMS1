@@ -37,7 +37,7 @@ class Course extends Model
 	
 	public function students()
     {
-        return $this->belongsToMany(User::class, 'enrollments')->withTimestamps();
+        return $this->belongsToMany(User::class, 'enrollments')->withTimestamps()->withPivot(['rating']);
     }
 
 

@@ -21,10 +21,20 @@
 		@endif
 		
 		<!-- Main content -->
-		<section class="content {{ $no_padding or '' }}">
-			<!-- Your Page Content Here -->
-			@yield('main-content')
-		</section><!-- /.content -->
+ 
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    @yield('sidebar')
+                </div>
+                <div class="col-md-7">
+                    <div class="row justify-content-md-center text-justify">
+                        @yield('main-content')
+                    </div>
+                </div>
+            </div>
+        </div> 
+		<!-- /.container -->
 
 		@if(LAConfigs::getByKey('layout') == 'layout-top-nav') </div> @endif
 	</div><!-- /.content-wrapper -->

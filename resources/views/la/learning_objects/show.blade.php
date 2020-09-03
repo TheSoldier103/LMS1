@@ -109,10 +109,11 @@
 						<h4>General Info</h4>
 					</div>
 					<div class="panel-body">
-						@la_display($module, 'lesson')
+						@la_display($module, 'lesson_id')
 						@la_display($module, 'lo_title')
+						@la_display($module, 'concept')
 						@la_display($module, 'file')
-						@la_display($module, 'format')
+						
 					</div>
 				</div>
 			</div>

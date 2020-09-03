@@ -18,6 +18,8 @@ use Dwij\Laraadmin\Models\Module;
 use Dwij\Laraadmin\Models\ModuleFields;
 
 use App\Models\Lesson;
+use App\User;
+
 
 class LessonsController extends Controller
 {
@@ -132,6 +134,10 @@ class LessonsController extends Controller
 		
 		$los = $lesson->learning_objects;
 		//dd($lesson->learning_objects);
+		##dd(Auth::id());
+		$user = User::find(Auth::id());
+		$user_name = $user->name;
+		
 
 		$file_link = DB::table('learning_objects')
 				->join('uploads', 'uploads.id', '=', 'learning_objects.file')
@@ -141,10 +147,17 @@ class LessonsController extends Controller
         $test_exists = FALSE;
         if ($lesson->test && $lesson->test->questions->count() > 0) {
             $test_exists = TRUE;
-        }
+		}
+		
+		//$python = `python3 /home/ufuoma/Downloads/Test_Ontology.py`;
+		
+		$userLOs = escapeshellcmd("python3 /home/ufuoma/Downloads/ontologyFile.py $user_name");
+		$output = shell_exec($userLOs);
+		$lo_arr = json_decode($output);
+		$python = `python3 /home/ufuoma/Downloads/ontologyFile.py`;
 
-        return view('lesson', compact('lesson', 'previous_lesson', 'next_lesson', 'test_result',
-            'enrolled_course', 'test_exists', 'file_link'));
+		return view('lesson', compact('lesson', 'previous_lesson', 'next_lesson', 'test_result',
+            'enrolled_course', 'test_exists', 'file_link','lo_arr'));
     }
 
 

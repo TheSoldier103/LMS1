@@ -17,13 +17,13 @@ use Collective\Html\FormFacade as Form;
 use Dwij\Laraadmin\Models\Module;
 use Dwij\Laraadmin\Models\ModuleFields;
 
-use App\User;
+use App\Models\User;
 
 class UsersController extends Controller
 {
-	public $show_action = false;
+	public $show_action = true;
 	public $view_col = 'name';
-	public $listing_cols = ['id', 'name', 'email', 'type'];
+	public $listing_cols = ['id', 'name', 'context_id', 'email', 'password', 'type'];
 	
 	public function __construct() {
 		// Field Access of Listing Columns
@@ -58,6 +58,69 @@ class UsersController extends Controller
 	}
 
 	/**
+	 * Show the form for creating a new user.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function create()
+	{
+		//
+	}
+
+	public function userPreferences(Request $request)
+    {
+		//dd($request->all());
+		//dd(request()->Language);
+
+		$user_id = request()->id;
+		$ar_fsls = request()->Active_Reflective_FSLS;
+		$ar_fsls_degree = request()->Active_Reflective_Degree;
+		$vv_fsls = request()->Visual_Verbal_FSLS;
+		$sg_fsls = request()->Sequential_Global_FSLS;
+		$ar_honey_mumford = request()->Activist_Reflector_Honey_Mumford;
+		$ar_hm_degree = request()->Activist_Reflector_Degree;
+		$media_preference = request()->Media_Preference;
+		$nav_preference = request()->Navigation_Preference;
+		//$purpose = request()->Purpose;
+
+		DB::insert('insert into user_preferences 
+		(user_id, ar_fsls, ar_fsls_degree, vv_fsls, sg_fsls, ar_honey_mumford, ar_hm_degree, media_preference, nav_preference) 
+		values (?, ?, ?, ?, ?, ?, ?, ?, ?)', 
+		[$user_id, $ar_fsls, $ar_fsls_degree, $vv_fsls, $sg_fsls, $ar_honey_mumford, $ar_hm_degree, $media_preference, $nav_preference]);
+         
+        return redirect ('/home')->with('success','User Preferences Added');
+
+        //return redirect ('/courses')->with('success', 'Course Created');
+    }
+
+	/**
+	 * Store a newly created user in database.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function store(Request $request)
+	{
+		if(Module::hasAccess("Users", "create")) {
+		
+			$rules = Module::validateRules("Users", $request);
+			
+			$validator = Validator::make($request->all(), $rules);
+			
+			if ($validator->fails()) {
+				return redirect()->back()->withErrors($validator)->withInput();
+			}
+			
+			$insert_id = Module::insert("Users", $request);
+			
+			return redirect()->route(config('laraadmin.adminRoute') . '.users.index');
+			
+		} else {
+			return redirect(config('laraadmin.adminRoute')."/");
+		}
+	}
+
+	/**
 	 * Display the specified user.
 	 *
 	 * @param  int  $id
@@ -66,19 +129,116 @@ class UsersController extends Controller
 	public function show($id)
 	{
 		if(Module::hasAccess("Users", "view")) {
-			$user = User::findOrFail($id);
+			
+			$user = User::find($id);
 			if(isset($user->id)) {
-				if($user['type'] == "Employee") {
-					return redirect(config('laraadmin.adminRoute') . '/employees/'.$user->id);
-				} else if($user['type'] == "Client") {
-					return redirect(config('laraadmin.adminRoute') . '/clients/'.$user->id);
-				}
+				$module = Module::get('Users');
+				$module->row = $user;
+
+				$active_reflective = ['active' =>'active', 'reflective' =>'reflective'];
+				$visual_verbal = ['visual' => 'visual','verbal' =>'verbal'];
+				$sequential_global = ['sequential' =>'sequential','global' =>'global'];
+				$activist_reflector = ['activist' =>'activist','reflector' =>'reflector'];
+				$media_preference = ['text/image' =>'text/image','sound' =>'sound', 'video' =>'video','simulation' => 'simulation'];
+				$navigation_preference = ['breadth-first' =>'breadth-first','depth-first' =>'depth-first'];
+				$degree = ['20' =>'20','40' =>'40','60' =>'60','80' =>'80','100' =>'100'];
+				
+				return view('la.users.show', [
+					'module' => $module,
+					'view_col' => $this->view_col,
+					'no_header' => true,
+					'no_padding' => "no-padding"
+				])->with('user', $user)
+				->with('active_reflective', $active_reflective)
+				->with('visual_verbal', $visual_verbal)
+				->with('sequential_global', $sequential_global)
+				->with('activist_reflector', $activist_reflector)
+				->with('media_preference', $media_preference)
+				->with('navigation_preference', $navigation_preference)
+				->with('degree', $degree)
+				->with('id', $id);
 			} else {
 				return view('errors.404', [
 					'record_id' => $id,
 					'record_name' => ucfirst("user"),
 				]);
 			}
+		} else {
+			return redirect(config('laraadmin.adminRoute')."/");
+		}
+	}
+
+	/**
+	 * Show the form for editing the specified user.
+	 *
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function edit($id)
+	{
+		if(Module::hasAccess("Users", "edit")) {			
+			$user = User::find($id);
+			if(isset($user->id)) {	
+				$module = Module::get('Users');
+				
+				$module->row = $user;
+				
+				return view('la.users.edit', [
+					'module' => $module,
+					'view_col' => $this->view_col,
+				])->with('user', $user);
+			} else {
+				return view('errors.404', [
+					'record_id' => $id,
+					'record_name' => ucfirst("user"),
+				]);
+			}
+		} else {
+			return redirect(config('laraadmin.adminRoute')."/");
+		}
+	}
+
+	/**
+	 * Update the specified user in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function update(Request $request, $id)
+	{
+		if(Module::hasAccess("Users", "edit")) {
+			
+			$rules = Module::validateRules("Users", $request, true);
+			
+			$validator = Validator::make($request->all(), $rules);
+			
+			if ($validator->fails()) {
+				return redirect()->back()->withErrors($validator)->withInput();;
+			}
+			
+			$insert_id = Module::updateRow("Users", $request, $id);
+			
+			return redirect()->route(config('laraadmin.adminRoute') . '.users.index');
+			
+		} else {
+			return redirect(config('laraadmin.adminRoute')."/");
+		}
+	}
+
+	/**
+	 * Remove the specified user from storage.
+	 *
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function destroy($id)
+	{
+		if(Module::hasAccess("Users", "delete")) {
+			User::find($id)->delete();
+			
+			// Redirecting to index() method
+			return redirect()->route(config('laraadmin.adminRoute') . '.users.index');
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
 		}

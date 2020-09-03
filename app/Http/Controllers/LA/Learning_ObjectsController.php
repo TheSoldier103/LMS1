@@ -24,7 +24,7 @@ class Learning_ObjectsController extends Controller
 {
 	public $show_action = true;
 	public $view_col = 'lo_title';
-	public $listing_cols = ['id', 'lesson_id', 'lo_title', 'file', 'format'];
+	public $listing_cols = ['id', 'lesson_id', 'lo_title', 'concept', 'file'];
 	
 	public function __construct() {
 		// Field Access of Listing Columns
@@ -88,7 +88,7 @@ class Learning_ObjectsController extends Controller
 	public function LOMetadata(Request $request)
     {
 	
-		//dd($request->all());
+		dd($request->all());
 		//dd(request()->Language);
 
 		$LO_id = request()->id;

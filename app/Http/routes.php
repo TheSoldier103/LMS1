@@ -22,3 +22,5 @@ Route::get('course/{slug}', ['uses' => 'LA\CoursesController@show_course', 'as' 
 Route::post('course/enrollment', ['uses' => 'LA\CoursesController@enrollment', 'as' => 'courses.enrollment']);
 
 Route::post('course/{course_id}/rating', ['uses' => 'LA\CoursesController@rating', 'as' => 'courses.rating']);
+
+Route::get('lesson/{course_id}/{slug}', ['uses' => 'LA\LessonsController@show_lesson', 'as' => 'lessons.show']);

@@ -36,6 +36,7 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	/* ================== Users ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/users', 'LA\UsersController');
 	Route::get(config('laraadmin.adminRoute') . '/user_dt_ajax', 'LA\UsersController@dtajax');
+	Route::post('{/admin/user_preferences/', 'LA\UsersController@userPreferences');
 	
 	/* ================== Uploads ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/uploads', 'LA\UploadsController');
@@ -55,8 +56,6 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	Route::resource(config('laraadmin.adminRoute') . '/permissions', 'LA\PermissionsController');
 	Route::get(config('laraadmin.adminRoute') . '/permission_dt_ajax', 'LA\PermissionsController@dtajax');
 	Route::post(config('laraadmin.adminRoute') . '/save_permissions/{id}', 'LA\PermissionsController@save_permissions');
-	
-	
 	
 
 	/* ================== Backups ================== */

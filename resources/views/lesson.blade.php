@@ -58,9 +58,19 @@
 
     @foreach ($file_link as $file_link)
     <a href="{{URL::to('/')}}/files/{{$file_link->hash}}/{{$file_link->name}}  " target="_blank">
-     <button class="btn"><i class="fa fa-download"></i><h3 >{{$file_link->lo_title}}</h3></button>
+     <button class="btn"><i class="fa fa-download"></i> {{$file_link->lo_title}} </button>
     </a>
     
+    @endforeach
+    <br>
+
+    <h3 style="color:#FF0000">Recomended files</h3>
+    @foreach ((array) $lo_arr    as $row1)
+    <a href="{{URL::to('/')}}/files/{{$file_link->hash}}/{{$file_link->name}}  " target="_blank">
+     <button class="btn"><i class="fa fa-download"></i> {{$row1}} </button>
+    </a>
+        
+        
     @endforeach
 
 @endsection

@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 03, 2020 at 09:44 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.27
+-- Generation Time: Sep 04, 2020 at 07:25 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.2.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -60,10 +59,10 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`id`, `deleted_at`, `created_at`, `updated_at`, `course_title`, `description`, `start_date`, `published`) VALUES
-(1, NULL, '2020-07-05 07:07:44', '2020-07-05 11:53:24', 'FirstCourse', 'This is a course for machine learning. You have to listen to the course, else you won\'t be the smartest', '2020-07-25', 1),
-(2, NULL, '2020-07-05 11:54:32', '2020-08-02 17:17:11', 'Databases', 'This is a course taken by Mancas on databases', '2020-07-31', 1),
-(3, NULL, '2020-08-01 02:00:26', '2020-08-01 02:00:44', 'NewCourse', 'This is a course on Badoo', '2020-08-18', 1),
-(4, NULL, '2020-08-02 05:14:20', '2020-08-02 05:14:20', 'Messing_With_Laraadmin', 'this course is to mess with the lara-admin platform', '0000-00-00', 1);
+(1, NULL, '2020-07-05 07:07:44', '2020-07-05 11:53:24', 'MachineLearning', 'This is a course for machine learning. it explains concepts, basics to provide deep understanding', '2020-07-25', 1),
+(2, NULL, '2020-07-05 11:54:32', '2020-08-02 17:17:11', 'Databases', 'Databases course explains the best practices to build an efficient database structure', '2020-07-31', 1),
+(3, NULL, '2020-08-01 02:00:26', '2020-08-01 02:00:44', 'Networking', 'this course explains the principles of networking and CCNA basics', '2020-08-18', 1),
+(4, NULL, '2020-08-02 05:14:20', '2020-08-02 05:14:20', 'AI', 'this course is an introduction to AI', '0000-00-00', 1);
 
 -- --------------------------------------------------------
 
@@ -124,30 +123,30 @@ INSERT INTO `delement_pparameters` (`id`, `deleted_at`, `created_at`, `updated_a
 (3, '2020-08-01 02:59:25', '2020-07-10 12:34:46', '2020-08-01 02:59:25', 'global', 2, 2, 'hierarchical', '100', ''),
 (4, '2020-08-01 02:59:33', '2020-07-14 08:14:47', '2020-08-01 02:59:33', 'English', 4, 11, 'en', '100', ''),
 (5, '2020-08-01 02:59:36', '2020-07-14 11:16:52', '2020-08-01 02:59:36', 'Romanian', 4, 11, 'ro', '100', ''),
-(6, '2020-08-01 02:59:39', '2020-08-01 02:45:16', '2020-08-01 02:59:39', 'active', 2, 12, 'active', '20', 'very low'),
+(6, '2020-08-01 02:59:39', '2020-08-01 02:45:16', '2020-08-01 02:59:39', 'active', 2, 12, 'active', '20', 'very_low'),
 (8, NULL, '2020-08-01 03:01:13', '2020-08-01 03:01:13', 'active', 2, 12, 'active', '40', 'low'),
 (9, NULL, '2020-08-01 03:02:11', '2020-08-01 03:02:11', 'active', 2, 12, 'active', '60', 'medium'),
 (10, NULL, '2020-08-01 03:02:50', '2020-08-01 03:02:50', 'active', 2, 12, 'active', '80', 'high'),
-(11, NULL, '2020-08-01 03:03:30', '2020-08-01 03:03:30', 'active', 2, 12, 'active', '100', 'very high'),
-(12, NULL, '2020-08-01 03:04:49', '2020-08-01 03:04:49', 'reflective', 2, 12, 'expositive', '20', 'very low'),
+(11, NULL, '2020-08-01 03:03:30', '2020-09-04 06:02:03', 'active', 2, 12, 'active', '100', 'very_high'),
+(12, NULL, '2020-08-01 03:04:49', '2020-09-04 06:02:31', 'reflective', 2, 12, 'expositive', '20', 'very_low'),
 (13, NULL, '2020-08-01 03:05:40', '2020-08-01 03:05:40', 'reflective', 2, 12, 'expositive', '40', 'low'),
 (14, NULL, '2020-08-01 03:06:11', '2020-08-01 03:06:11', 'reflective', 2, 12, 'expositive', '60', 'medium'),
 (15, NULL, '2020-08-01 03:06:48', '2020-08-01 03:06:48', 'reflective', 2, 12, 'expositive', '80', 'high'),
-(16, NULL, '2020-08-01 03:07:23', '2020-08-01 03:07:23', 'reflective', 2, 12, 'expositive', '100', 'very high'),
-(17, NULL, '2020-08-01 03:08:22', '2020-08-01 03:08:22', 'activist', 8, 12, 'active', '20', 'very low'),
+(16, NULL, '2020-08-01 03:07:23', '2020-09-04 06:02:53', 'reflective', 2, 12, 'expositive', '100', 'very_high'),
+(17, NULL, '2020-08-01 03:08:22', '2020-09-04 06:03:10', 'activist', 8, 12, 'active', '20', 'very_low'),
 (18, NULL, '2020-08-01 03:08:47', '2020-08-01 03:08:47', 'activist', 8, 12, 'active', '40', 'low'),
 (19, NULL, '2020-08-01 03:10:19', '2020-08-01 03:10:19', 'activist', 8, 12, 'active', '60', 'medium'),
 (20, NULL, '2020-08-01 03:10:51', '2020-08-01 03:10:51', 'activist', 8, 12, 'active', '80', 'high'),
-(21, NULL, '2020-08-01 03:11:15', '2020-08-01 06:08:17', 'activist', 8, 12, 'active', '100', 'very high'),
-(22, NULL, '2020-08-01 03:12:02', '2020-08-01 03:12:02', 'reflector', 8, 12, 'expositive', '20', 'very low'),
+(21, NULL, '2020-08-01 03:11:15', '2020-08-01 06:08:17', 'activist', 8, 12, 'active', '100', 'very_high'),
+(22, NULL, '2020-08-01 03:12:02', '2020-08-01 03:12:02', 'reflector', 8, 12, 'expositive', '20', 'very_low'),
 (23, NULL, '2020-08-01 03:12:38', '2020-08-01 03:12:38', 'reflector', 8, 12, 'expositive', '40', 'low'),
 (24, NULL, '2020-08-01 03:13:39', '2020-08-01 03:13:39', 'reflector', 8, 12, 'expositive', '60', 'medium'),
 (25, NULL, '2020-08-01 03:14:25', '2020-08-01 03:14:25', 'reflector', 8, 12, 'expositive', '80', 'high'),
-(26, NULL, '2020-08-01 03:15:13', '2020-08-01 03:15:13', 'reflector', 8, 12, 'expositive', '100', 'very high'),
+(26, NULL, '2020-08-01 03:15:13', '2020-08-01 03:15:13', 'reflector', 8, 12, 'expositive', '100', 'very_high'),
 (27, NULL, '2020-08-01 03:16:34', '2020-08-01 03:19:13', 'visual', 2, 14, 'diagram', '100', ''),
 (28, NULL, '2020-08-01 03:20:12', '2020-08-01 03:20:12', 'visual', 2, 14, 'figure', '100', ''),
 (29, NULL, '2020-08-01 03:21:10', '2020-08-01 03:21:10', 'visual', 2, 14, 'graph', '100', ''),
-(30, NULL, '2020-08-01 03:22:07', '2020-08-01 03:22:07', 'verbal', 2, 14, 'narrative text', '100', ''),
+(30, NULL, '2020-08-01 03:22:07', '2020-09-04 05:38:15', 'verbal', 2, 14, 'narrative_text', '100', 'low'),
 (31, NULL, '2020-08-01 03:22:57', '2020-08-01 03:22:57', 'verbal', 2, 14, 'lecture', '100', ''),
 (32, NULL, '2020-08-01 03:23:36', '2020-08-01 03:23:36', 'visual', 2, 1, 'video', '100', ''),
 (33, NULL, '2020-08-01 03:24:32', '2020-08-01 03:24:32', 'sequential', 2, 2, 'linear', '100', ''),
@@ -155,7 +154,7 @@ INSERT INTO `delement_pparameters` (`id`, `deleted_at`, `created_at`, `updated_a
 (35, NULL, '2020-08-01 03:26:36', '2020-08-01 03:26:36', 'text/image', 1, 14, 'diagram', '100', ''),
 (36, NULL, '2020-08-01 03:27:08', '2020-08-01 06:07:32', 'text/image', 1, 14, 'figure', '100', ''),
 (37, NULL, '2020-08-01 03:27:40', '2020-08-01 03:27:40', 'text/image', 1, 14, 'graph', '100', ''),
-(38, NULL, '2020-08-01 03:28:20', '2020-08-01 06:08:57', 'text/image', 1, 14, 'narrative text', '100', ''),
+(38, NULL, '2020-08-01 03:28:20', '2020-08-01 06:08:57', 'text/image', 1, 14, 'narrative_text', '100', ''),
 (39, NULL, '2020-08-01 03:29:33', '2020-08-01 03:29:33', 'text/image', 1, 14, 'lecture', '100', ''),
 (40, NULL, '2020-08-01 03:30:18', '2020-08-01 03:30:18', 'video', 1, 1, 'video', '100', ''),
 (41, NULL, '2020-08-01 03:30:39', '2020-08-01 03:30:39', 'sound', 1, 1, 'audio', '100', ''),
@@ -170,15 +169,15 @@ INSERT INTO `delement_pparameters` (`id`, `deleted_at`, `created_at`, `updated_a
 (50, NULL, '2020-08-01 03:39:27', '2020-08-01 03:39:27', 'beginner', 3, 15, 'easy', '80', ''),
 (51, NULL, '2020-08-01 03:40:19', '2020-08-01 03:40:19', 'intermediate', 3, 15, 'medium', '100', ''),
 (52, NULL, '2020-08-01 03:40:56', '2020-08-01 03:42:07', 'advanced', 3, 15, 'difficult', '100', ''),
-(53, NULL, '2020-08-01 03:41:48', '2020-08-01 03:41:48', 'advanced', 3, 15, 'very difficult', '100', ''),
+(53, NULL, '2020-08-01 03:41:48', '2020-08-01 03:41:48', 'advanced', 3, 15, 'very_difficult', '100', ''),
 (54, NULL, '2020-08-01 03:43:19', '2020-08-01 03:43:19', 'breadth-first', 6, 2, 'hierarchical', '100', ''),
 (55, NULL, '2020-08-01 03:44:30', '2020-08-01 03:44:30', 'depth-first', 6, 2, 'hierarchical', '100', ''),
-(56, NULL, '2020-08-01 03:45:44', '2020-08-01 03:45:44', 'low', 5, 16, 'very low', '100', ''),
+(56, NULL, '2020-08-01 03:45:44', '2020-08-01 03:45:44', 'low', 5, 16, 'very_low', '100', ''),
 (57, NULL, '2020-08-01 03:46:47', '2020-08-01 03:46:47', 'low', 5, 16, 'low', '100', ''),
 (58, NULL, '2020-08-01 03:47:53', '2020-08-01 03:47:53', 'moderate', 5, 16, 'medium', '100', ''),
 (59, NULL, '2020-08-01 03:48:36', '2020-08-01 03:48:36', 'high', 5, 16, 'high', '100', ''),
-(60, NULL, '2020-08-01 03:49:05', '2020-08-01 03:49:05', 'high', 5, 16, 'very high', '100', ''),
-(61, NULL, '2020-08-01 03:50:02', '2020-08-01 03:50:57', 'objectivist', 7, 17, 'educational objective', '100', ''),
+(60, NULL, '2020-08-01 03:49:05', '2020-08-01 03:49:05', 'high', 5, 16, 'very_high', '100', ''),
+(61, NULL, '2020-08-01 03:50:02', '2020-08-01 03:50:57', 'objectivist', 7, 17, 'educational_objective', '100', ''),
 (62, NULL, '2020-08-01 03:51:55', '2020-08-01 03:51:55', 'competencies_based', 7, 17, 'competency', '100', '');
 
 -- --------------------------------------------------------
@@ -205,7 +204,10 @@ INSERT INTO `enrollments` (`id`, `deleted_at`, `created_at`, `updated_at`, `cour
 (3, NULL, '2020-08-01 09:27:55', '2020-08-01 09:27:55', 1, 3, 0),
 (4, NULL, '2020-08-01 11:16:27', '2020-08-01 11:19:55', 2, 3, 5),
 (5, NULL, '2020-08-01 12:29:14', '2020-08-01 12:29:14', 1, 1, 0),
-(6, NULL, '2020-08-02 17:15:56', '2020-08-02 17:15:56', 2, 1, 0);
+(6, NULL, '2020-08-02 17:15:56', '2020-08-02 17:15:56', 2, 1, 0),
+(7, NULL, '2020-09-04 06:32:36', '2020-09-04 06:32:36', 4, 2, 0),
+(8, NULL, '2020-09-04 06:33:23', '2020-09-04 06:33:23', 2, 2, 0),
+(9, NULL, '2020-09-04 14:12:08', '2020-09-04 14:12:08', 2, 5, 0);
 
 -- --------------------------------------------------------
 
@@ -367,8 +369,10 @@ CREATE TABLE `lessons` (
 INSERT INTO `lessons` (`id`, `deleted_at`, `created_at`, `updated_at`, `lesson_title`, `course_id`, `description`, `published`, `lesson_image`, `position`, `full_text`) VALUES
 (1, NULL, '2020-07-05 11:52:56', '2020-08-02 17:12:59', 'Introduction', 1, 'This is an introduction to machine Learning', 1, 2, 1, 'The standard Lorem Ipsum passage, used since the 1500s\r\n\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"\r\n\r\nSection 1.10.32 of \"de Finibus Bonorum et Malorum\", written by Cicero in 45 BC\r\n\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"\r\n'),
 (2, NULL, '2020-07-05 11:54:03', '2020-08-01 15:42:31', 'SupervisedLearning', 1, 'This is the lessons for supervised learning', 1, 2, 2, 'Section 1.10.33 of \"de Finibus Bonorum et Malorum\", written by Cicero in 45 BC\r\n\"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\"\r\n\r\n1914 translation by H. Rackham\r\n\"On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.\"'),
-(3, NULL, '2020-08-02 17:14:45', '2020-08-02 17:18:20', 'FirstLesson', 2, 'This is the first lesson for Databases taken by Professor', 1, 1, 1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
-(4, NULL, '2020-08-02 17:15:30', '2020-08-02 17:17:51', 'SecondLesson', 2, 'This is the second lesson taken by Professor on Databases', 1, 2, 2, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).');
+(3, NULL, '2020-08-02 17:14:45', '2020-08-02 17:18:20', 'Relationships', 2, 'This is the first lesson for Databases taken by Professor', 1, 1, 1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+(4, NULL, '2020-08-02 17:15:30', '2020-08-02 17:17:51', 'Queries', 2, 'This is the second lesson taken by Professor on Databases', 1, 2, 2, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).'),
+(5, NULL, '2020-09-04 13:09:08', '2020-09-04 13:09:08', 'Linear_Regression_with_One_Variable', 1, 'Linear regression predicts a real-valued output based on an input value. We discuss the application of linear regression to housing price prediction, present the notion of a cost function, and introduce the gradient descent method for learning.', 1, 0, 1, 'Linear regression predicts a real-valued output based on an input value. We discuss the application of linear regression to housing price prediction, present the notion of a cost function, and introduce the gradient descent method for learning.\r\n\r\n'),
+(6, NULL, '2020-09-04 13:11:39', '2020-09-04 13:11:39', 'LinearAlgebraReview', 1, '', 1, 0, 1, 'This optional module provides a refresher on linear algebra concepts. Basic understanding of linear algebra is necessary for the rest of the course, especially as we begin to cover models with multiple variables.\r\n\r\n');
 
 -- --------------------------------------------------------
 
@@ -399,7 +403,10 @@ INSERT INTO `lesson_students` (`id`, `deleted_at`, `created_at`, `updated_at`, `
 (7, NULL, '2020-09-02 13:27:52', '2020-09-02 13:27:52', 3, 3),
 (8, NULL, '2020-09-02 13:31:08', '2020-09-02 13:31:08', 4, 3),
 (9, NULL, '2020-09-02 14:16:22', '2020-09-02 14:16:22', 1, 2),
-(10, NULL, '2020-09-02 14:16:49', '2020-09-02 14:16:49', 3, 2);
+(10, NULL, '2020-09-02 14:16:49', '2020-09-02 14:16:49', 3, 2),
+(11, NULL, '2020-09-04 08:58:02', '2020-09-04 08:58:02', 4, 2),
+(12, NULL, '2020-09-04 14:10:44', '2020-09-04 14:10:44', 3, 5),
+(13, NULL, '2020-09-04 14:11:32', '2020-09-04 14:11:32', 4, 5);
 
 -- --------------------------------------------------------
 
@@ -429,31 +436,31 @@ CREATE TABLE `lo_properties` (
 --
 
 INSERT INTO `lo_properties` (`id`, `deleted_at`, `created_at`, `updated_at`, `lo`, `language`, `interactivity_type`, `interactivity_level`, `resource_type`, `format`, `structure`, `difficulty`, `semantic_density`, `purpose`) VALUES
-(10, NULL, NULL, NULL, 1, 'en', 'active', 'medium', 'diagram', 'video', 'linear', 'very easy', 'very low', 'educational objective'),
-(11, NULL, NULL, NULL, 2, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'difficult', 'very low', 'educational objective'),
-(12, NULL, NULL, NULL, 4, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'easy', 'very low', 'educational objective'),
-(13, NULL, NULL, NULL, 5, 'en', 'expositive', 'high', 'narrative text', 'text', 'linear', 'difficult', 'high', 'educational objective'),
-(14, NULL, NULL, NULL, 6, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'very difficult', 'very high', 'educational objective'),
-(15, NULL, NULL, NULL, 7, 'en', 'expositive', 'high', 'narrative text', 'text', 'linear', 'medium', 'medium', 'educational objective'),
-(16, NULL, NULL, NULL, 8, 'en', 'active', 'high', 'simulation', 'video', 'linear', 'difficult', 'high', 'educational objective'),
-(17, NULL, NULL, NULL, 9, 'en', 'expositive', 'high', 'narrative text', 'text', 'hierarchical', 'difficult', 'high', 'educational objective'),
+(10, NULL, NULL, NULL, 1, 'en', 'active', 'medium', 'diagram', 'video', 'linear', 'very_easy', 'very_low', 'educational_objective'),
+(11, NULL, NULL, NULL, 2, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'difficult', 'very_low', 'educational_objective'),
+(12, NULL, NULL, NULL, 4, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'easy', 'very_low', 'educational_objective'),
+(13, NULL, NULL, NULL, 5, 'en', 'expositive', 'high', 'narrative_text', 'text', 'linear', 'difficult', 'high', 'educational_objective'),
+(14, NULL, NULL, NULL, 6, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'very_difficult', 'very_high', 'educational_objective'),
+(15, NULL, NULL, NULL, 7, 'en', 'expositive', 'high', 'narrative_text', 'text', 'linear', 'medium', 'medium', 'educational_objective'),
+(16, NULL, NULL, NULL, 8, 'en', 'active', 'high', 'simulation', 'video', 'linear', 'difficult', 'high', 'educational_objective'),
+(17, NULL, NULL, NULL, 9, 'en', 'expositive', 'high', 'narrative_text', 'text', 'hierarchical', 'difficult', 'high', 'educational_objective'),
 (18, NULL, NULL, NULL, 10, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'difficult', 'high', 'competency'),
-(19, NULL, NULL, NULL, 11, 'en', 'expositive', 'high', 'narrative text', 'text', 'linear', 'difficult', 'high', 'educational objective'),
-(20, NULL, NULL, NULL, 12, 'en', 'expositive', 'high', 'narrative text', 'text', 'linear', 'medium', 'medium', 'educational objective'),
-(21, NULL, NULL, NULL, 13, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'easy', 'very low', 'educational objective'),
-(22, NULL, NULL, NULL, 14, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'difficult', 'high', 'educational objective'),
-(23, NULL, NULL, NULL, 15, 'en', 'expositive', 'high', 'narrative text', 'text', 'linear', 'difficult', 'high', 'educational objective'),
-(24, NULL, NULL, NULL, 16, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'medium', 'medium', 'educational objective'),
+(19, NULL, NULL, NULL, 11, 'en', 'expositive', 'high', 'narrative_text', 'text', 'linear', 'difficult', 'high', 'educational_objective'),
+(20, NULL, NULL, NULL, 12, 'en', 'expositive', 'high', 'narrative_text', 'text', 'linear', 'medium', 'medium', 'educational_objective'),
+(21, NULL, NULL, NULL, 13, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'easy', 'very_low', 'educational_objective'),
+(22, NULL, NULL, NULL, 14, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'difficult', 'high', 'educational_objective'),
+(23, NULL, NULL, NULL, 15, 'en', 'expositive', 'high', 'narrative_text', 'text', 'linear', 'difficult', 'high', 'educational_objective'),
+(24, NULL, NULL, NULL, 16, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'medium', 'medium', 'educational_objective'),
 (25, NULL, NULL, NULL, 17, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'difficult', 'high', 'competency'),
-(26, NULL, NULL, NULL, 18, 'en', 'expositive', 'high', 'simulation', 'video', 'linear', 'difficult', 'high', 'educational objective'),
-(27, NULL, NULL, NULL, 19, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'difficult', 'high', 'educational objective'),
-(28, NULL, NULL, NULL, 20, 'en', 'active', 'high', 'lecture', 'video', 'hierarchical', 'difficult', 'high', 'educational objective'),
-(29, NULL, NULL, NULL, 21, 'en', 'expositive', 'high', 'narrative text', 'text', 'hierarchical', 'difficult', 'high', 'competency'),
-(30, NULL, NULL, NULL, 22, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'difficult', 'high', 'educational objective'),
-(31, NULL, NULL, NULL, 23, 'en', 'expositive', 'high', 'narrative text', 'text', 'linear', 'difficult', 'high', 'educational objective'),
-(32, NULL, NULL, NULL, 24, 'en', 'expositive', 'high', 'lecture', 'video', 'linear', 'easy', 'very low', 'competency'),
-(33, NULL, NULL, NULL, 25, 'en', 'expositive', 'high', 'narrative text', 'text', 'linear', 'difficult', 'high', 'educational objective'),
-(34, NULL, NULL, NULL, 26, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'difficult', 'high', 'educational objective'),
+(26, NULL, NULL, NULL, 18, 'en', 'expositive', 'high', 'simulation', 'video', 'linear', 'difficult', 'high', 'educational_objective'),
+(27, NULL, NULL, NULL, 19, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'difficult', 'high', 'educational_objective'),
+(28, NULL, NULL, NULL, 20, 'en', 'active', 'high', 'lecture', 'video', 'hierarchical', 'difficult', 'high', 'educational_objective'),
+(29, NULL, NULL, NULL, 21, 'en', 'expositive', 'high', 'narrative_text', 'text', 'hierarchical', 'difficult', 'high', 'competency'),
+(30, NULL, NULL, NULL, 22, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'difficult', 'high', 'educational_objective'),
+(31, NULL, NULL, NULL, 23, 'en', 'expositive', 'high', 'narrative_text', 'text', 'linear', 'difficult', 'high', 'educational_objective'),
+(32, NULL, NULL, NULL, 24, 'en', 'expositive', 'high', 'lecture', 'video', 'linear', 'easy', 'very_low', 'competency'),
+(33, NULL, NULL, NULL, 25, 'en', 'expositive', 'high', 'narrative_text', 'text', 'linear', 'difficult', 'high', 'educational_objective'),
+(34, NULL, NULL, NULL, 26, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'difficult', 'high', 'educational_objective'),
 (35, NULL, NULL, NULL, 27, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'medium', 'medium', 'educational objective'),
 (36, NULL, NULL, NULL, 28, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'difficult', 'high', 'educational objective'),
 (37, NULL, NULL, NULL, 29, 'en', 'active', 'high', 'lecture', 'video', 'linear', 'very difficult', 'very high', 'competency'),
@@ -614,7 +621,7 @@ INSERT INTO `module_fields` (`id`, `colname`, `label`, `module`, `field_type`, `
 (83, 'parameter', 'Parameter', 19, 7, 0, '', 0, 0, 1, '@p_parameters', 2, '2020-07-09 13:48:21', '2020-07-09 13:48:21'),
 (84, 'data_element', 'Data Element', 19, 7, 0, '', 0, 0, 1, '@data_elements', 3, '2020-07-09 13:55:24', '2020-07-09 13:55:24'),
 (85, 'metadata_value', 'Metadata Value', 19, 19, 0, '', 0, 256, 1, '', 4, '2020-07-09 13:56:11', '2020-07-09 13:56:11'),
-(86, 'degree', 'Degree', 19, 7, 0, '100', 0, 0, 0, '[\"20\",\"40\",\"60\",\"80\",\"100\"]', 6, '2020-07-09 13:56:55', '2020-08-02 10:10:10'),
+(86, 'degree', 'Degree', 19, 7, 0, '100', 0, 0, 0, '[\"20\",\"40\",\"60\",\"80\",\"100\",\"120\"]', 6, '2020-07-09 13:56:55', '2020-09-04 05:51:09'),
 (87, 'lesson_id', 'Lesson', 13, 7, 0, '', 0, 0, 0, '@lessons', 1, '2020-07-13 05:55:09', '2020-08-01 19:29:39'),
 (91, 'lo', 'Learning Object', 21, 7, 0, '', 0, 0, 0, '@learning_objects', 0, '2020-07-14 08:20:50', '2020-07-14 08:20:50'),
 (92, 'language', 'Language', 21, 19, 0, '', 0, 256, 0, '', 0, '2020-07-14 08:21:23', '2020-07-14 08:21:23'),
@@ -624,7 +631,7 @@ INSERT INTO `module_fields` (`id`, `colname`, `label`, `module`, `field_type`, `
 (96, 'question', 'Question', 23, 19, 1, '', 0, 256, 1, '', 0, '2020-07-15 11:37:08', '2020-07-15 11:37:08'),
 (97, 'score', 'Score', 23, 13, 0, '', 0, 11, 0, '', 0, '2020-07-15 11:37:52', '2020-07-15 11:37:52'),
 (98, 'position', 'Position', 10, 13, 0, '1', 0, 11, 0, '', 0, '2020-07-27 05:15:12', '2020-07-27 05:15:12'),
-(102, 'interactivity_level', 'Interactivity Level', 19, 7, 0, '', 0, 0, 0, '[\"low\",\"very low\",\"medium\",\"high\",\"very high\",\"-\"]', 5, '2020-08-01 02:39:50', '2020-08-01 03:17:50'),
+(102, 'interactivity_level', 'Interactivity Level', 19, 7, 0, '', 0, 0, 0, '[\"low\",\"medium\",\"high\",\"very_high\",\"very_low\"]', 5, '2020-08-01 02:39:50', '2020-09-04 06:10:13'),
 (103, 'interactivity_type', 'Interactivity Type', 21, 19, 0, '', 0, 256, 0, '', 0, '2020-08-01 06:41:52', '2020-08-01 06:41:52'),
 (104, 'interactivity_level', 'Interactivity Level', 21, 19, 0, '', 0, 256, 0, '', 0, '2020-08-01 06:53:49', '2020-08-01 06:53:49'),
 (105, 'resource_type', 'Resource Type', 21, 19, 0, '', 0, 256, 0, '', 0, '2020-08-01 06:58:21', '2020-08-01 06:58:21'),
@@ -1097,9 +1104,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `context_id`, `email`, `password`, `remember_token`, `deleted_at`, `created_at`, `updated_at`, `type`) VALUES
-(1, 'Admin', 1, 'admin@admin.com', '$2y$10$ZZruNhWe698blkfyzQthAOYWNsALXxR0rj.EwWaHeD9ZEPubXd/T.', 'ziIR2zoyQyGSU1izibhJkujuM7oqyZcwhG5co4xpe9KwbHFDRnX4DRRUqmZQ', NULL, '2020-07-04 21:47:36', '2020-09-02 08:41:24', 1),
-(2, 'Humam', 0, 'humam@lms.com', '$2y$10$ZZruNhWe698blkfyzQthAOYWNsALXxR0rj.EwWaHeD9ZEPubXd/T.', 'OTKZHavsUrlVqnPjL6atRhfocTG5vO4yTe4oiVk8Z0aatLh3PNhGJYjoLfJg', NULL, NULL, '2020-08-22 12:18:42', 3),
-(3, 'Student103', 1, 'student@student.com', '$2y$10$ZZruNhWe698blkfyzQthAOYWNsALXxR0rj.EwWaHeD9ZEPubXd/T.', 'utvExcCZviO0FARjisy5VLwDbg9JchV7MVtl0QM5fZZxHulnEzVri0wIoJEo', NULL, NULL, '2020-09-02 14:15:14', 3),
+(1, 'Admin', 1, 'admin@admin.com', '$2y$10$ZZruNhWe698blkfyzQthAOYWNsALXxR0rj.EwWaHeD9ZEPubXd/T.', 'ZUCfC7KY1F6mTCPDg8shhe5yTgbMyTQ8P9cbkgawRte6ymIAET0aDzpqip2j', NULL, '2020-07-04 21:47:36', '2020-09-04 13:23:09', 1),
+(2, 'Humam', 0, 'humam@lms.com', '$2y$10$ZZruNhWe698blkfyzQthAOYWNsALXxR0rj.EwWaHeD9ZEPubXd/T.', 'x7R4jmaFoA8CqShUJWQhAelFJqmnet7fFmEjjNCPoF7futnDIDGf5kqDc26E', NULL, NULL, '2020-09-04 14:10:02', 3),
+(3, 'Student103', 1, 'student@student.com', '$2y$10$ZZruNhWe698blkfyzQthAOYWNsALXxR0rj.EwWaHeD9ZEPubXd/T.', 'AGlXAHYXV3Km4wKeAoFv2ISabeBjacfOWxIWYZ5D9n4LTwyFgDTo5fWcBTBp', NULL, NULL, '2020-09-04 13:53:56', 3),
 (5, 'Corina_M', 0, 'corina.meojeed@yahoo.com', '$2y$10$67Csx97IyuVq7dx7pyCJROh4H20kt/hq/hgFyTxUtWakqb8EMC48q', 'VXdUjaU0oyglBwNiOnbXcVBwCcgAv1eDmVgfvvFEZnFq8WUlnFmUVTQzJhTA', NULL, '2020-08-31 05:04:57', '2020-09-01 13:10:31', 2);
 
 -- --------------------------------------------------------
@@ -1157,7 +1164,7 @@ CREATE TABLE `user_preferences` (
 --
 
 INSERT INTO `user_preferences` (`id`, `deleted_at`, `created_at`, `updated_at`, `user_id`, `ar_fsls`, `ar_fsls_degree`, `vv_fsls`, `sg_fsls`, `ar_honey_mumford`, `ar_hm_degree`, `media_preference`, `nav_preference`) VALUES
-(1, NULL, NULL, NULL, 5, '', 20, 'visual', '', '', 20, 'text/image', 'breadth-first'),
+(1, NULL, NULL, NULL, 5, '', 20, 'verbal', '', '', 20, '', ''),
 (2, NULL, NULL, NULL, 2, 'reflective', 80, 'verbal', 'sequential', 'reflector', 80, 'sound', 'depth-first'),
 (3, NULL, NULL, NULL, 3, 'reflective', 100, 'visual', 'sequential', 'activist', 100, 'simulation', 'breadth-first');
 
@@ -1395,7 +1402,7 @@ ALTER TABLE `delement_pparameters`
 -- AUTO_INCREMENT for table `enrollments`
 --
 ALTER TABLE `enrollments`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `la_configs`
@@ -1419,13 +1426,13 @@ ALTER TABLE `learning_objects`
 -- AUTO_INCREMENT for table `lessons`
 --
 ALTER TABLE `lessons`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `lesson_students`
 --
 ALTER TABLE `lesson_students`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `lo_properties`

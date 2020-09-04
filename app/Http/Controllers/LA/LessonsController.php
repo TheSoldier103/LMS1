@@ -133,11 +133,6 @@ class LessonsController extends Controller
 		$enrolled_course = $lesson->course->students()->where('user_id', \Auth::id())->count() > 0;
 		
 		$los = $lesson->learning_objects;
-		//dd($lesson->learning_objects);
-		##dd(Auth::id());
-		$user = User::find(Auth::id());
-		$user_name = $user->name;
-		
 
 		$file_link = DB::table('learning_objects')
 				->join('uploads', 'uploads.id', '=', 'learning_objects.file')
@@ -149,15 +144,24 @@ class LessonsController extends Controller
             $test_exists = TRUE;
 		}
 		
-		//$python = `python3 /home/ufuoma/Downloads/Test_Ontology.py`;
-		
-		$userLOs = escapeshellcmd("python3 /home/ufuoma/Downloads/ontologyFile.py $user_name");
+		#$python = `python3 /home/ufuoma/Documents/ontologyOutput.py`;
+		#dd($python);
+		$user = User::find(Auth::id());
+		$user_name = $user->name;
+		$userLOs = escapeshellcmd("python3 /home/ufuoma/Documents/ontologyOutput.py $user_name");
 		$output = shell_exec($userLOs);
-		$lo_arr = json_decode($output);
-		$python = `python3 /home/ufuoma/Downloads/ontologyFile.py`;
+		$lo_array = json_decode($output);
+
+		$db_lo_array = [];
+		foreach ($file_link as $key => $value) {
+			 array_push($db_lo_array, $value->lo_title);
+		}
+
+		$suitedLos = array_intersect ($db_lo_array, $lo_array);
+	
 
 		return view('lesson', compact('lesson', 'previous_lesson', 'next_lesson', 'test_result',
-            'enrolled_course', 'test_exists', 'file_link','lo_arr'));
+            'enrolled_course', 'test_exists', 'file_link','suitedLos'));
     }
 
 

@@ -65,9 +65,9 @@
     <br>
 
     <h3 style="color:#FF0000">Recomended files</h3>
-    @foreach ((array) $lo_arr    as $row1)
+    @foreach ((array) $suitedLos as $row)
     <a href="{{URL::to('/')}}/files/{{$file_link->hash}}/{{$file_link->name}}  " target="_blank">
-     <button class="btn"><i class="fa fa-download"></i> {{$row1}} </button>
+     <button class="btn"><i class="fa fa-download"></i> {{$row}} </button>
     </a>
         
         

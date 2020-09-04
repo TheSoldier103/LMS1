@@ -459,11 +459,14 @@
 
 <Student rdf:about="#Humam">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <isEnrolledIn rdf:resource="#Messing_With_Laraadmin"/>
+  <isEnrolledIn rdf:resource="#Databases"/>
   <hasPreference rdf:resource="#sound_100_audio"/>
   <hasPreference rdf:resource="#sequential_100_linear"/>
   <hasPreference rdf:resource="#verbal_100_lecture"/>
   <hasPreference rdf:resource="#depth-first_100_hierarchical"/>
   <hasPreference rdf:resource="#reflective_80_expositive"/>
+  <hasPreference rdf:resource="#verbal_100_narrative_text"/>
   <isSuitedTo rdf:resource="#LO28"/>
   <isSuitedTo rdf:resource="#LO19"/>
   <isSuitedTo rdf:resource="#LO21"/>
@@ -552,6 +555,7 @@
 
 <Instructor rdf:about="#Corina_M">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <hasPreference rdf:resource="#text/image_100_narrative_text"/>
   <hasPreference rdf:resource="#text/image_100_image"/>
   <hasPreference rdf:resource="#breadth-first_100_hierarchical"/>
   <hasPreference rdf:resource="#text/image_100_text"/>
@@ -645,6 +649,7 @@
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <hasCoursePreference rdf:resource="#competencies_based_100_competency"/>
   <hasCoursePreference rdf:resource="#advanced_100_difficult"/>
+  <hasCoursePreference rdf:resource="#advanced_100_very_difficult"/>
   <hasCoursePreference rdf:resource="#English_100_en"/>
   <userInCourse rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2</userInCourse>
   <courseForUser rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2</courseForUser>
@@ -657,6 +662,7 @@
 <UserCoursePreference rdf:about="#User5Course2_Preferences">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <hasCoursePreference rdf:resource="#intermediate_100_medium"/>
+  <hasCoursePreference rdf:resource="#objectivist_100_educational_objective"/>
   <hasCoursePreference rdf:resource="#Romanian_100_ro"/>
   <userInCourse rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5</userInCourse>
   <courseForUser rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2</courseForUser>
@@ -670,6 +676,7 @@
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <hasCoursePreference rdf:resource="#beginner_80_easy"/>
   <hasCoursePreference rdf:resource="#English_100_en"/>
+  <hasCoursePreference rdf:resource="#objectivist_100_educational_objective"/>
   <userInCourse rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3</userInCourse>
   <courseForUser rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2</courseForUser>
   <user_Language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">English</user_Language>
@@ -726,6 +733,18 @@
   <enrollment_user_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</enrollment_user_id>
 </Enrollment>
 
+<Enrollment rdf:about="#Enrollment_7">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <enrollment_course_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4</enrollment_course_id>
+  <enrollment_user_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2</enrollment_user_id>
+</Enrollment>
+
+<Enrollment rdf:about="#Enrollment_8">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <enrollment_course_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2</enrollment_course_id>
+  <enrollment_user_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2</enrollment_user_id>
+</Enrollment>
+
 <Lesson rdf:about="#Introduction">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <belongsToCourse rdf:resource="#FirstCourse"/>
@@ -766,7 +785,9 @@
   <isDescribedBy rdf:resource="#linear__2"/>
   <isDescribedBy rdf:resource="#video__1"/>
   <isDescribedBy rdf:resource="#active_medium_12"/>
+  <isDescribedBy rdf:resource="#very_low__16"/>
   <isDescribedBy rdf:resource="#en__11"/>
+  <isDescribedBy rdf:resource="#educational_objective__17"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</learning_object_id>
   <lo_concept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a</lo_concept>
   <lesson rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2</lesson>
@@ -796,9 +817,12 @@
   <isDescribedBy rdf:resource="#high__16"/>
   <isDescribedBy rdf:resource="#linear__2"/>
   <isDescribedBy rdf:resource="#expositive_high_12"/>
+  <isDescribedBy rdf:resource="#narrative_text__14"/>
   <isDescribedBy rdf:resource="#difficult__15"/>
+  <isDescribedBy rdf:resource="#narrative_text_low_14"/>
   <isDescribedBy rdf:resource="#text__1"/>
   <isDescribedBy rdf:resource="#en__11"/>
+  <isDescribedBy rdf:resource="#educational_objective__17"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">11</learning_object_id>
   <lo_concept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Overview of Supervised Learning</lo_concept>
   <lesson rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3</lesson>
@@ -811,9 +835,12 @@
   <isDescribedBy rdf:resource="#medium__16"/>
   <isDescribedBy rdf:resource="#linear__2"/>
   <isDescribedBy rdf:resource="#expositive_high_12"/>
+  <isDescribedBy rdf:resource="#narrative_text__14"/>
+  <isDescribedBy rdf:resource="#narrative_text_low_14"/>
   <isDescribedBy rdf:resource="#text__1"/>
   <isDescribedBy rdf:resource="#medium__15"/>
   <isDescribedBy rdf:resource="#en__11"/>
+  <isDescribedBy rdf:resource="#educational_objective__17"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12</learning_object_id>
   <lo_concept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Overview of Supervised Learning</lo_concept>
   <lesson rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3</lesson>
@@ -827,8 +854,10 @@
   <isDescribedBy rdf:resource="#linear__2"/>
   <isDescribedBy rdf:resource="#video__1"/>
   <isDescribedBy rdf:resource="#lecture__14"/>
+  <isDescribedBy rdf:resource="#very_low__16"/>
   <isDescribedBy rdf:resource="#easy__15"/>
   <isDescribedBy rdf:resource="#en__11"/>
+  <isDescribedBy rdf:resource="#educational_objective__17"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13</learning_object_id>
   <lo_concept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Overview of Learning Theory</lo_concept>
   <lesson rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3</lesson>
@@ -845,6 +874,7 @@
   <isDescribedBy rdf:resource="#difficult__15"/>
   <isDescribedBy rdf:resource="#lecture__14"/>
   <isDescribedBy rdf:resource="#en__11"/>
+  <isDescribedBy rdf:resource="#educational_objective__17"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14</learning_object_id>
   <lo_concept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Overview of Learning Theory</lo_concept>
   <lesson rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3</lesson>
@@ -857,9 +887,12 @@
   <isDescribedBy rdf:resource="#high__16"/>
   <isDescribedBy rdf:resource="#linear__2"/>
   <isDescribedBy rdf:resource="#expositive_high_12"/>
+  <isDescribedBy rdf:resource="#narrative_text__14"/>
   <isDescribedBy rdf:resource="#difficult__15"/>
+  <isDescribedBy rdf:resource="#narrative_text_low_14"/>
   <isDescribedBy rdf:resource="#text__1"/>
   <isDescribedBy rdf:resource="#en__11"/>
+  <isDescribedBy rdf:resource="#educational_objective__17"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15</learning_object_id>
   <lo_concept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Overview of Learning Theory</lo_concept>
   <lesson rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3</lesson>
@@ -876,6 +909,7 @@
   <isDescribedBy rdf:resource="#lecture__14"/>
   <isDescribedBy rdf:resource="#medium__15"/>
   <isDescribedBy rdf:resource="#en__11"/>
+  <isDescribedBy rdf:resource="#educational_objective__17"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">16</learning_object_id>
   <lo_concept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Overview of Unsupervised Learning</lo_concept>
   <lesson rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3</lesson>
@@ -909,6 +943,7 @@
   <isDescribedBy rdf:resource="#video__1"/>
   <isDescribedBy rdf:resource="#difficult__15"/>
   <isDescribedBy rdf:resource="#en__11"/>
+  <isDescribedBy rdf:resource="#educational_objective__17"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">18</learning_object_id>
   <lo_concept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Overview of Reinforcement Learning</lo_concept>
   <lesson rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3</lesson>
@@ -925,6 +960,7 @@
   <isDescribedBy rdf:resource="#difficult__15"/>
   <isDescribedBy rdf:resource="#lecture__14"/>
   <isDescribedBy rdf:resource="#en__11"/>
+  <isDescribedBy rdf:resource="#educational_objective__17"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">19</learning_object_id>
   <lo_concept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Overview of Reinforcement Learning</lo_concept>
   <lesson rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3</lesson>
@@ -939,7 +975,9 @@
   <isDescribedBy rdf:resource="#video__1"/>
   <isDescribedBy rdf:resource="#difficult__15"/>
   <isDescribedBy rdf:resource="#lecture__14"/>
+  <isDescribedBy rdf:resource="#very_low__16"/>
   <isDescribedBy rdf:resource="#en__11"/>
+  <isDescribedBy rdf:resource="#educational_objective__17"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2</learning_object_id>
   <lo_concept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">b</lo_concept>
   <lesson rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</lesson>
@@ -956,6 +994,7 @@
   <isDescribedBy rdf:resource="#difficult__15"/>
   <isDescribedBy rdf:resource="#lecture__14"/>
   <isDescribedBy rdf:resource="#en__11"/>
+  <isDescribedBy rdf:resource="#educational_objective__17"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">20</learning_object_id>
   <lo_concept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Overview of Reinforcement Learning</lo_concept>
   <lesson rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3</lesson>
@@ -968,8 +1007,10 @@
   <isDescribedBy rdf:resource="#hierarchical__2"/>
   <isDescribedBy rdf:resource="#high__16"/>
   <isDescribedBy rdf:resource="#expositive_high_12"/>
+  <isDescribedBy rdf:resource="#narrative_text__14"/>
   <isDescribedBy rdf:resource="#competency__17"/>
   <isDescribedBy rdf:resource="#difficult__15"/>
+  <isDescribedBy rdf:resource="#narrative_text_low_14"/>
   <isDescribedBy rdf:resource="#text__1"/>
   <isDescribedBy rdf:resource="#en__11"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">21</learning_object_id>
@@ -988,6 +1029,7 @@
   <isDescribedBy rdf:resource="#difficult__15"/>
   <isDescribedBy rdf:resource="#lecture__14"/>
   <isDescribedBy rdf:resource="#en__11"/>
+  <isDescribedBy rdf:resource="#educational_objective__17"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">22</learning_object_id>
   <lo_concept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An Application of Supervised Learning Autonomous Deriving</lo_concept>
   <lesson rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4</lesson>
@@ -1000,9 +1042,12 @@
   <isDescribedBy rdf:resource="#high__16"/>
   <isDescribedBy rdf:resource="#linear__2"/>
   <isDescribedBy rdf:resource="#expositive_high_12"/>
+  <isDescribedBy rdf:resource="#narrative_text__14"/>
   <isDescribedBy rdf:resource="#difficult__15"/>
+  <isDescribedBy rdf:resource="#narrative_text_low_14"/>
   <isDescribedBy rdf:resource="#text__1"/>
   <isDescribedBy rdf:resource="#en__11"/>
+  <isDescribedBy rdf:resource="#educational_objective__17"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">23</learning_object_id>
   <lo_concept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ALVINN</lo_concept>
   <lesson rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4</lesson>
@@ -1017,6 +1062,7 @@
   <isDescribedBy rdf:resource="#video__1"/>
   <isDescribedBy rdf:resource="#competency__17"/>
   <isDescribedBy rdf:resource="#lecture__14"/>
+  <isDescribedBy rdf:resource="#very_low__16"/>
   <isDescribedBy rdf:resource="#easy__15"/>
   <isDescribedBy rdf:resource="#en__11"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">24</learning_object_id>
@@ -1031,9 +1077,12 @@
   <isDescribedBy rdf:resource="#high__16"/>
   <isDescribedBy rdf:resource="#linear__2"/>
   <isDescribedBy rdf:resource="#expositive_high_12"/>
+  <isDescribedBy rdf:resource="#narrative_text__14"/>
   <isDescribedBy rdf:resource="#difficult__15"/>
+  <isDescribedBy rdf:resource="#narrative_text_low_14"/>
   <isDescribedBy rdf:resource="#text__1"/>
   <isDescribedBy rdf:resource="#en__11"/>
+  <isDescribedBy rdf:resource="#educational_objective__17"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">25</learning_object_id>
   <lo_concept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Linear Regression</lo_concept>
   <lesson rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4</lesson>
@@ -1050,6 +1099,7 @@
   <isDescribedBy rdf:resource="#difficult__15"/>
   <isDescribedBy rdf:resource="#lecture__14"/>
   <isDescribedBy rdf:resource="#en__11"/>
+  <isDescribedBy rdf:resource="#educational_objective__17"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">26</learning_object_id>
   <lo_concept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Linear Regression</lo_concept>
   <lesson rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4</lesson>
@@ -1212,9 +1262,12 @@
   <isDescribedBy rdf:resource="#high__16"/>
   <isDescribedBy rdf:resource="#linear__2"/>
   <isDescribedBy rdf:resource="#expositive_high_12"/>
+  <isDescribedBy rdf:resource="#narrative_text__14"/>
   <isDescribedBy rdf:resource="#difficult__15"/>
+  <isDescribedBy rdf:resource="#narrative_text_low_14"/>
   <isDescribedBy rdf:resource="#text__1"/>
   <isDescribedBy rdf:resource="#en__11"/>
+  <isDescribedBy rdf:resource="#educational_objective__17"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5</learning_object_id>
   <lo_concept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Motivation &amp; Applications of Machine Learning</lo_concept>
   <lesson rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3</lesson>
@@ -1224,11 +1277,14 @@
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <belongsToLesson rdf:resource="#FirstLesson"/>
   <loBelongsToCourse rdf:resource="#Databases"/>
+  <isDescribedBy rdf:resource="#very_difficult__15"/>
   <isDescribedBy rdf:resource="#active_high_12"/>
   <isDescribedBy rdf:resource="#linear__2"/>
   <isDescribedBy rdf:resource="#video__1"/>
   <isDescribedBy rdf:resource="#lecture__14"/>
+  <isDescribedBy rdf:resource="#very_high__16"/>
   <isDescribedBy rdf:resource="#en__11"/>
+  <isDescribedBy rdf:resource="#educational_objective__17"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6</learning_object_id>
   <lo_concept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Motivation &amp; Applications of Machine Learning</lo_concept>
   <lesson rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3</lesson>
@@ -1241,9 +1297,12 @@
   <isDescribedBy rdf:resource="#medium__16"/>
   <isDescribedBy rdf:resource="#expositive_high_12"/>
   <isDescribedBy rdf:resource="#linear__2"/>
+  <isDescribedBy rdf:resource="#narrative_text__14"/>
+  <isDescribedBy rdf:resource="#narrative_text_low_14"/>
   <isDescribedBy rdf:resource="#medium__15"/>
   <isDescribedBy rdf:resource="#text__1"/>
   <isDescribedBy rdf:resource="#en__11"/>
+  <isDescribedBy rdf:resource="#educational_objective__17"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7</learning_object_id>
   <lo_concept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Logistics of the Class</lo_concept>
   <lesson rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3</lesson>
@@ -1260,6 +1319,7 @@
   <isDescribedBy rdf:resource="#video__1"/>
   <isDescribedBy rdf:resource="#difficult__15"/>
   <isDescribedBy rdf:resource="#en__11"/>
+  <isDescribedBy rdf:resource="#educational_objective__17"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8</learning_object_id>
   <lo_concept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Logistics of the Class</lo_concept>
   <lesson rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3</lesson>
@@ -1272,9 +1332,12 @@
   <isDescribedBy rdf:resource="#hierarchical__2"/>
   <isDescribedBy rdf:resource="#high__16"/>
   <isDescribedBy rdf:resource="#expositive_high_12"/>
+  <isDescribedBy rdf:resource="#narrative_text__14"/>
   <isDescribedBy rdf:resource="#difficult__15"/>
+  <isDescribedBy rdf:resource="#narrative_text_low_14"/>
   <isDescribedBy rdf:resource="#text__1"/>
   <isDescribedBy rdf:resource="#en__11"/>
+  <isDescribedBy rdf:resource="#educational_objective__17"/>
   <learning_object_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9</learning_object_id>
   <lo_concept rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Definition of Machine Learning</lo_concept>
   <lesson rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3</lesson>
@@ -1289,9 +1352,9 @@
   <resource_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">diagram</resource_type>
   <lo_format rdf:datatype="http://www.w3.org/2001/XMLSchema#string">video</lo_format>
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</structure>
-  <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very easy</difficulty>
-  <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very low</semantic_density>
-  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</purpose>
+  <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_easy</difficulty>
+  <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_low</semantic_density>
+  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</purpose>
 </LOProperty>
 
 <LOProperty rdf:about="#LO_no_2">
@@ -1304,8 +1367,8 @@
   <lo_format rdf:datatype="http://www.w3.org/2001/XMLSchema#string">video</lo_format>
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</structure>
   <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">difficult</difficulty>
-  <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very low</semantic_density>
-  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</purpose>
+  <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_low</semantic_density>
+  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</purpose>
 </LOProperty>
 
 <LOProperty rdf:about="#LO_no_4">
@@ -1318,8 +1381,8 @@
   <lo_format rdf:datatype="http://www.w3.org/2001/XMLSchema#string">video</lo_format>
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</structure>
   <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">easy</difficulty>
-  <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very low</semantic_density>
-  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</purpose>
+  <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_low</semantic_density>
+  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</purpose>
 </LOProperty>
 
 <LOProperty rdf:about="#LO_no_5">
@@ -1328,12 +1391,12 @@
   <language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">en</language>
   <interactivity_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">expositive</interactivity_type>
   <lo_interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</lo_interactivity_level>
-  <resource_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative text</resource_type>
+  <resource_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative_text</resource_type>
   <lo_format rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text</lo_format>
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</structure>
   <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">difficult</difficulty>
   <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</semantic_density>
-  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</purpose>
+  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</purpose>
 </LOProperty>
 
 <LOProperty rdf:about="#LO_no_6">
@@ -1345,9 +1408,9 @@
   <resource_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lecture</resource_type>
   <lo_format rdf:datatype="http://www.w3.org/2001/XMLSchema#string">video</lo_format>
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</structure>
-  <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very difficult</difficulty>
-  <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very high</semantic_density>
-  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</purpose>
+  <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_difficult</difficulty>
+  <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_high</semantic_density>
+  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</purpose>
 </LOProperty>
 
 <LOProperty rdf:about="#LO_no_7">
@@ -1356,12 +1419,12 @@
   <language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">en</language>
   <interactivity_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">expositive</interactivity_type>
   <lo_interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</lo_interactivity_level>
-  <resource_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative text</resource_type>
+  <resource_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative_text</resource_type>
   <lo_format rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text</lo_format>
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</structure>
   <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">medium</difficulty>
   <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">medium</semantic_density>
-  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</purpose>
+  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</purpose>
 </LOProperty>
 
 <LOProperty rdf:about="#LO_no_8">
@@ -1375,7 +1438,7 @@
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</structure>
   <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">difficult</difficulty>
   <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</semantic_density>
-  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</purpose>
+  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</purpose>
 </LOProperty>
 
 <LOProperty rdf:about="#LO_no_9">
@@ -1384,12 +1447,12 @@
   <language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">en</language>
   <interactivity_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">expositive</interactivity_type>
   <lo_interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</lo_interactivity_level>
-  <resource_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative text</resource_type>
+  <resource_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative_text</resource_type>
   <lo_format rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text</lo_format>
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hierarchical</structure>
   <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">difficult</difficulty>
   <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</semantic_density>
-  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</purpose>
+  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</purpose>
 </LOProperty>
 
 <LOProperty rdf:about="#LO_no_10">
@@ -1412,12 +1475,12 @@
   <language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">en</language>
   <interactivity_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">expositive</interactivity_type>
   <lo_interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</lo_interactivity_level>
-  <resource_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative text</resource_type>
+  <resource_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative_text</resource_type>
   <lo_format rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text</lo_format>
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</structure>
   <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">difficult</difficulty>
   <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</semantic_density>
-  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</purpose>
+  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</purpose>
 </LOProperty>
 
 <LOProperty rdf:about="#LO_no_12">
@@ -1426,12 +1489,12 @@
   <language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">en</language>
   <interactivity_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">expositive</interactivity_type>
   <lo_interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</lo_interactivity_level>
-  <resource_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative text</resource_type>
+  <resource_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative_text</resource_type>
   <lo_format rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text</lo_format>
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</structure>
   <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">medium</difficulty>
   <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">medium</semantic_density>
-  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</purpose>
+  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</purpose>
 </LOProperty>
 
 <LOProperty rdf:about="#LO_no_13">
@@ -1444,8 +1507,8 @@
   <lo_format rdf:datatype="http://www.w3.org/2001/XMLSchema#string">video</lo_format>
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</structure>
   <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">easy</difficulty>
-  <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very low</semantic_density>
-  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</purpose>
+  <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_low</semantic_density>
+  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</purpose>
 </LOProperty>
 
 <LOProperty rdf:about="#LO_no_14">
@@ -1459,7 +1522,7 @@
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</structure>
   <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">difficult</difficulty>
   <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</semantic_density>
-  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</purpose>
+  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</purpose>
 </LOProperty>
 
 <LOProperty rdf:about="#LO_no_15">
@@ -1468,12 +1531,12 @@
   <language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">en</language>
   <interactivity_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">expositive</interactivity_type>
   <lo_interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</lo_interactivity_level>
-  <resource_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative text</resource_type>
+  <resource_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative_text</resource_type>
   <lo_format rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text</lo_format>
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</structure>
   <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">difficult</difficulty>
   <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</semantic_density>
-  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</purpose>
+  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</purpose>
 </LOProperty>
 
 <LOProperty rdf:about="#LO_no_16">
@@ -1487,7 +1550,7 @@
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</structure>
   <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">medium</difficulty>
   <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">medium</semantic_density>
-  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</purpose>
+  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</purpose>
 </LOProperty>
 
 <LOProperty rdf:about="#LO_no_17">
@@ -1515,7 +1578,7 @@
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</structure>
   <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">difficult</difficulty>
   <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</semantic_density>
-  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</purpose>
+  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</purpose>
 </LOProperty>
 
 <LOProperty rdf:about="#LO_no_19">
@@ -1529,7 +1592,7 @@
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</structure>
   <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">difficult</difficulty>
   <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</semantic_density>
-  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</purpose>
+  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</purpose>
 </LOProperty>
 
 <LOProperty rdf:about="#LO_no_20">
@@ -1543,7 +1606,7 @@
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hierarchical</structure>
   <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">difficult</difficulty>
   <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</semantic_density>
-  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</purpose>
+  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</purpose>
 </LOProperty>
 
 <LOProperty rdf:about="#LO_no_21">
@@ -1552,7 +1615,7 @@
   <language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">en</language>
   <interactivity_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">expositive</interactivity_type>
   <lo_interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</lo_interactivity_level>
-  <resource_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative text</resource_type>
+  <resource_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative_text</resource_type>
   <lo_format rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text</lo_format>
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hierarchical</structure>
   <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">difficult</difficulty>
@@ -1571,7 +1634,7 @@
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</structure>
   <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">difficult</difficulty>
   <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</semantic_density>
-  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</purpose>
+  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</purpose>
 </LOProperty>
 
 <LOProperty rdf:about="#LO_no_23">
@@ -1580,12 +1643,12 @@
   <language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">en</language>
   <interactivity_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">expositive</interactivity_type>
   <lo_interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</lo_interactivity_level>
-  <resource_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative text</resource_type>
+  <resource_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative_text</resource_type>
   <lo_format rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text</lo_format>
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</structure>
   <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">difficult</difficulty>
   <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</semantic_density>
-  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</purpose>
+  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</purpose>
 </LOProperty>
 
 <LOProperty rdf:about="#LO_no_24">
@@ -1598,7 +1661,7 @@
   <lo_format rdf:datatype="http://www.w3.org/2001/XMLSchema#string">video</lo_format>
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</structure>
   <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">easy</difficulty>
-  <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very low</semantic_density>
+  <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_low</semantic_density>
   <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">competency</purpose>
 </LOProperty>
 
@@ -1608,12 +1671,12 @@
   <language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">en</language>
   <interactivity_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">expositive</interactivity_type>
   <lo_interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</lo_interactivity_level>
-  <resource_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative text</resource_type>
+  <resource_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative_text</resource_type>
   <lo_format rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text</lo_format>
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</structure>
   <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">difficult</difficulty>
   <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</semantic_density>
-  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</purpose>
+  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</purpose>
 </LOProperty>
 
 <LOProperty rdf:about="#LO_no_26">
@@ -1627,7 +1690,7 @@
   <structure rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</structure>
   <difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">difficult</difficulty>
   <semantic_density rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</semantic_density>
-  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</purpose>
+  <purpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</purpose>
 </LOProperty>
 
 <LOProperty rdf:about="#LO_no_27">
@@ -1788,41 +1851,43 @@
 
 <Felder_Silverman_LS rdf:about="#active_100_active">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <relatesTo rdf:resource="#active_very_high_12"/>
   <parameter rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Felder_Silverman_LS</parameter>
   <linguistic_term rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</linguistic_term>
   <degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string">100</degree>
   <pp_de rdf:datatype="http://www.w3.org/2001/XMLSchema#string">11</pp_de>
-  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very high</iLevel>
+  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_high</iLevel>
   <mValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</mValue>
   <dElement rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Interactivity_Type</dElement>
 </Felder_Silverman_LS>
 
-<Interactivity_Type rdf:about="#active_very high_12">
+<Interactivity_Type rdf:about="#active_very_high_12">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <metadata_value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</metadata_value>
   <element_nr rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.1</element_nr>
   <element_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Interactivity_Type</element_name>
-  <interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very high</interactivity_level>
+  <interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_high</interactivity_level>
   <de_pp rdf:datatype="http://www.w3.org/2001/XMLSchema#string">21</de_pp>
 </Interactivity_Type>
 
 <Felder_Silverman_LS rdf:about="#reflective_20_expositive">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <relatesTo rdf:resource="#expositive_very_low_12"/>
   <parameter rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Felder_Silverman_LS</parameter>
   <linguistic_term rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reflective</linguistic_term>
   <degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string">20</degree>
   <pp_de rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12</pp_de>
-  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very low</iLevel>
+  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_low</iLevel>
   <mValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">expositive</mValue>
   <dElement rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Interactivity_Type</dElement>
 </Felder_Silverman_LS>
 
-<Interactivity_Type rdf:about="#expositive_very low_12">
+<Interactivity_Type rdf:about="#expositive_very_low_12">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <metadata_value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">expositive</metadata_value>
   <element_nr rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.1</element_nr>
   <element_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Interactivity_Type</element_name>
-  <interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very low</interactivity_level>
+  <interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_low</interactivity_level>
   <de_pp rdf:datatype="http://www.w3.org/2001/XMLSchema#string">22</de_pp>
 </Interactivity_Type>
 
@@ -1891,41 +1956,43 @@
 
 <Felder_Silverman_LS rdf:about="#reflective_100_expositive">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <relatesTo rdf:resource="#expositive_very_high_12"/>
   <parameter rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Felder_Silverman_LS</parameter>
   <linguistic_term rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reflective</linguistic_term>
   <degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string">100</degree>
   <pp_de rdf:datatype="http://www.w3.org/2001/XMLSchema#string">16</pp_de>
-  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very high</iLevel>
+  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_high</iLevel>
   <mValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">expositive</mValue>
   <dElement rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Interactivity_Type</dElement>
 </Felder_Silverman_LS>
 
-<Interactivity_Type rdf:about="#expositive_very high_12">
+<Interactivity_Type rdf:about="#expositive_very_high_12">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <metadata_value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">expositive</metadata_value>
   <element_nr rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.1</element_nr>
   <element_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Interactivity_Type</element_name>
-  <interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very high</interactivity_level>
+  <interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_high</interactivity_level>
   <de_pp rdf:datatype="http://www.w3.org/2001/XMLSchema#string">26</de_pp>
 </Interactivity_Type>
 
 <Honey_Mumford_Learning_Style rdf:about="#activist_20_active">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <relatesTo rdf:resource="#active_very_low_12"/>
   <parameter rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Honey_Mumford_Learning_Style</parameter>
   <linguistic_term rdf:datatype="http://www.w3.org/2001/XMLSchema#string">activist</linguistic_term>
   <degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string">20</degree>
   <pp_de rdf:datatype="http://www.w3.org/2001/XMLSchema#string">17</pp_de>
-  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very low</iLevel>
+  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_low</iLevel>
   <mValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</mValue>
   <dElement rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Interactivity_Type</dElement>
 </Honey_Mumford_Learning_Style>
 
-<Interactivity_Type rdf:about="#active_very low_12">
+<Interactivity_Type rdf:about="#active_very_low_12">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <metadata_value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</metadata_value>
   <element_nr rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.1</element_nr>
   <element_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Interactivity_Type</element_name>
-  <interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very low</interactivity_level>
+  <interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_low</interactivity_level>
   <de_pp rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6</de_pp>
 </Interactivity_Type>
 
@@ -2008,22 +2075,24 @@
 
 <Honey_Mumford_Learning_Style rdf:about="#activist_100_active">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <relatesTo rdf:resource="#active_very_high_12"/>
   <parameter rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Honey_Mumford_Learning_Style</parameter>
   <linguistic_term rdf:datatype="http://www.w3.org/2001/XMLSchema#string">activist</linguistic_term>
   <degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string">100</degree>
   <pp_de rdf:datatype="http://www.w3.org/2001/XMLSchema#string">21</pp_de>
-  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very high</iLevel>
+  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_high</iLevel>
   <mValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</mValue>
   <dElement rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Interactivity_Type</dElement>
 </Honey_Mumford_Learning_Style>
 
 <Honey_Mumford_Learning_Style rdf:about="#reflector_20_expositive">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <relatesTo rdf:resource="#expositive_very_low_12"/>
   <parameter rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Honey_Mumford_Learning_Style</parameter>
   <linguistic_term rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reflector</linguistic_term>
   <degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string">20</degree>
   <pp_de rdf:datatype="http://www.w3.org/2001/XMLSchema#string">22</pp_de>
-  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very low</iLevel>
+  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_low</iLevel>
   <mValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">expositive</mValue>
   <dElement rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Interactivity_Type</dElement>
 </Honey_Mumford_Learning_Style>
@@ -2066,11 +2135,12 @@
 
 <Honey_Mumford_Learning_Style rdf:about="#reflector_100_expositive">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <relatesTo rdf:resource="#expositive_very_high_12"/>
   <parameter rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Honey_Mumford_Learning_Style</parameter>
   <linguistic_term rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reflector</linguistic_term>
   <degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string">100</degree>
   <pp_de rdf:datatype="http://www.w3.org/2001/XMLSchema#string">26</pp_de>
-  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very high</iLevel>
+  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_high</iLevel>
   <mValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">expositive</mValue>
   <dElement rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Interactivity_Type</dElement>
 </Honey_Mumford_Learning_Style>
@@ -2167,24 +2237,25 @@
   <de_pp rdf:datatype="http://www.w3.org/2001/XMLSchema#string">55</de_pp>
 </Structure>
 
-<Felder_Silverman_LS rdf:about="#verbal_100_narrative text">
+<Felder_Silverman_LS rdf:about="#verbal_100_narrative_text">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <relatesTo rdf:resource="#narrative_text_low_14"/>
   <parameter rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Felder_Silverman_LS</parameter>
   <linguistic_term rdf:datatype="http://www.w3.org/2001/XMLSchema#string">verbal</linguistic_term>
   <degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string">100</degree>
   <pp_de rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30</pp_de>
-  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></iLevel>
-  <mValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative text</mValue>
+  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">low</iLevel>
+  <mValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative_text</mValue>
   <dElement rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Learning_Resource_Type</dElement>
 </Felder_Silverman_LS>
 
-<Learning_Resource_Type rdf:about="#narrative text__14">
+<Learning_Resource_Type rdf:about="#narrative_text_low_14">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <metadata_value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative text</metadata_value>
+  <metadata_value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative_text</metadata_value>
   <element_nr rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.2</element_nr>
   <element_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Learning_Resource_Type</element_name>
-  <interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></interactivity_level>
-  <de_pp rdf:datatype="http://www.w3.org/2001/XMLSchema#string">38</de_pp>
+  <interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">low</interactivity_level>
+  <de_pp rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30</de_pp>
 </Learning_Resource_Type>
 
 <Felder_Silverman_LS rdf:about="#verbal_100_lecture">
@@ -2285,16 +2356,28 @@
   <dElement rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Learning_Resource_Type</dElement>
 </Media_Preference>
 
-<Media_Preference rdf:about="#text/image_100_narrative text">
+<Media_Preference rdf:about="#text/image_100_narrative_text">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <relatesTo rdf:resource="#narrative_text__14"/>
   <parameter rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Media_Preference</parameter>
   <linguistic_term rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/image</linguistic_term>
   <degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string">100</degree>
   <pp_de rdf:datatype="http://www.w3.org/2001/XMLSchema#string">38</pp_de>
   <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></iLevel>
-  <mValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative text</mValue>
+  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">()</iLevel>
+  <mValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative_text</mValue>
   <dElement rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Learning_Resource_Type</dElement>
 </Media_Preference>
+
+<Learning_Resource_Type rdf:about="#narrative_text__14">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <metadata_value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">narrative_text</metadata_value>
+  <element_nr rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.2</element_nr>
+  <element_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Learning_Resource_Type</element_name>
+  <interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></interactivity_level>
+  <interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">()</interactivity_level>
+  <de_pp rdf:datatype="http://www.w3.org/2001/XMLSchema#string">38</de_pp>
+</Learning_Resource_Type>
 
 <Media_Preference rdf:about="#text/image_100_lecture">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -2559,23 +2642,26 @@
   <de_pp rdf:datatype="http://www.w3.org/2001/XMLSchema#string">52</de_pp>
 </Difficulty>
 
-<Level_of_knowledge rdf:about="#advanced_100_very difficult">
+<Level_of_knowledge rdf:about="#advanced_100_very_difficult">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <relatesTo rdf:resource="#very_difficult__15"/>
   <parameter rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Level_of_knowledge</parameter>
   <linguistic_term rdf:datatype="http://www.w3.org/2001/XMLSchema#string">advanced</linguistic_term>
   <degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string">100</degree>
   <pp_de rdf:datatype="http://www.w3.org/2001/XMLSchema#string">53</pp_de>
   <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></iLevel>
-  <mValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very difficult</mValue>
+  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">()</iLevel>
+  <mValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_difficult</mValue>
   <dElement rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Difficulty</dElement>
 </Level_of_knowledge>
 
-<Difficulty rdf:about="#very difficult__15">
+<Difficulty rdf:about="#very_difficult__15">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <metadata_value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very difficult</metadata_value>
+  <metadata_value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_difficult</metadata_value>
   <element_nr rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.8</element_nr>
   <element_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Difficulty</element_name>
   <interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></interactivity_level>
+  <interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">()</interactivity_level>
   <de_pp rdf:datatype="http://www.w3.org/2001/XMLSchema#string">53</de_pp>
 </Difficulty>
 
@@ -2605,23 +2691,26 @@
   <dElement rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Structure</dElement>
 </Navigation_Preference>
 
-<Motivation_Level rdf:about="#low_100_very low">
+<Motivation_Level rdf:about="#low_100_very_low">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <relatesTo rdf:resource="#very_low__16"/>
   <parameter rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Motivation_Level</parameter>
   <linguistic_term rdf:datatype="http://www.w3.org/2001/XMLSchema#string">low</linguistic_term>
   <degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string">100</degree>
   <pp_de rdf:datatype="http://www.w3.org/2001/XMLSchema#string">56</pp_de>
   <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></iLevel>
-  <mValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very low</mValue>
+  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">()</iLevel>
+  <mValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_low</mValue>
   <dElement rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Semantic_Density</dElement>
 </Motivation_Level>
 
-<Semantic_Density rdf:about="#very low__16">
+<Semantic_Density rdf:about="#very_low__16">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <metadata_value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very low</metadata_value>
+  <metadata_value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_low</metadata_value>
   <element_nr rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.4</element_nr>
   <element_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Semantic_Density</element_name>
   <interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></interactivity_level>
+  <interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">()</interactivity_level>
   <de_pp rdf:datatype="http://www.w3.org/2001/XMLSchema#string">56</de_pp>
 </Semantic_Density>
 
@@ -2696,52 +2785,59 @@
 
 <Felder_Silverman_LS rdf:about="#active_20_active">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <relatesTo rdf:resource="#active_very_low_12"/>
   <parameter rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Felder_Silverman_LS</parameter>
   <linguistic_term rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</linguistic_term>
   <degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string">20</degree>
   <pp_de rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6</pp_de>
-  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very low</iLevel>
+  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_low</iLevel>
   <mValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</mValue>
   <dElement rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Interactivity_Type</dElement>
 </Felder_Silverman_LS>
 
-<Motivation_Level rdf:about="#high_100_very high">
+<Motivation_Level rdf:about="#high_100_very_high">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <relatesTo rdf:resource="#very_high__16"/>
   <parameter rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Motivation_Level</parameter>
   <linguistic_term rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</linguistic_term>
   <degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string">100</degree>
   <pp_de rdf:datatype="http://www.w3.org/2001/XMLSchema#string">60</pp_de>
   <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></iLevel>
-  <mValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very high</mValue>
+  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">()</iLevel>
+  <mValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_high</mValue>
   <dElement rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Semantic_Density</dElement>
 </Motivation_Level>
 
-<Semantic_Density rdf:about="#very high__16">
+<Semantic_Density rdf:about="#very_high__16">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <metadata_value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very high</metadata_value>
+  <metadata_value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very_high</metadata_value>
   <element_nr rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5.4</element_nr>
   <element_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Semantic_Density</element_name>
   <interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></interactivity_level>
+  <interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">()</interactivity_level>
   <de_pp rdf:datatype="http://www.w3.org/2001/XMLSchema#string">60</de_pp>
 </Semantic_Density>
 
-<Pedagogical_Approach rdf:about="#objectivist_100_educational objective">
+<Pedagogical_Approach rdf:about="#objectivist_100_educational_objective">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <relatesTo rdf:resource="#educational_objective__17"/>
   <parameter rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pedagogical_Approach</parameter>
   <linguistic_term rdf:datatype="http://www.w3.org/2001/XMLSchema#string">objectivist</linguistic_term>
   <degree rdf:datatype="http://www.w3.org/2001/XMLSchema#string">100</degree>
   <pp_de rdf:datatype="http://www.w3.org/2001/XMLSchema#string">61</pp_de>
   <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></iLevel>
-  <mValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</mValue>
+  <iLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">()</iLevel>
+  <mValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</mValue>
   <dElement rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Purpose</dElement>
 </Pedagogical_Approach>
 
-<Purpose rdf:about="#educational objective__17">
+<Purpose rdf:about="#educational_objective__17">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <metadata_value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational objective</metadata_value>
+  <metadata_value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">educational_objective</metadata_value>
   <element_nr rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9.1</element_nr>
   <element_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Purpose</element_name>
   <interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></interactivity_level>
+  <interactivity_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string">()</interactivity_level>
   <de_pp rdf:datatype="http://www.w3.org/2001/XMLSchema#string">61</de_pp>
 </Purpose>
 
